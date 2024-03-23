@@ -29,9 +29,11 @@ const Home = () => {
   }, []);
   return (
     <div className="">
-      <nav className="bg-red-100 p-4 flex flex-row justify-center">
-        <div className="text-center w-full font-semibold text-3xl">
-          RU SCHEDULING
+      <nav className="bg-stone-500 p-4 flex flex-row justify-center h-full">
+        <div className="flex h-full justify-center items-center">
+          <div className="justify-center text-center w-full font-semibold text-3xl ">
+            RU SCHEDULING
+          </div>
         </div>
         <div className="min-w-fit">
           {isLoading ? (<div>Loading</div> ) :
@@ -39,11 +41,11 @@ const Home = () => {
             <LoginButton />
           ) : (
             <div className="min-w-fit flex flex-row align-middle min-h-full">
-              <div className="p-2 min-w-fit flex flex-row bg-red-300 rounded-full">
-                <a href="/profile" className="flex flex-row min-h-full min-w-fit align-middle">
-                  <CgProfile className="align-middle min-h-full" />
-                  <div className="">Profile</div>
-                </a>
+              <div className="p-2 min-w-fit flex flex-row bg-stone-600 text-white rounded-full hover:bg-stone-200 hover:text-black border hover:border-black">
+                <Link to="/profile" className="flex flex-row min-h-full min-w-fit align-middle hover:">
+                  <CgProfile className="align-middle min-h-full h-6 w-6 " />
+                  <div className="p-1">Profile</div>
+                </Link>
               </div>
               <div className="pl-2">
                 <LogoutButton />

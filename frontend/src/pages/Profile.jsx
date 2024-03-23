@@ -5,14 +5,16 @@ import LoginButton from '../components/LoginButton'
 import { useAuth0 } from "@auth0/auth0-react";
 import LogoutButton from '../components/LogoutButton';
 import { Link } from "react-router-dom"
-
+import { HiOutlineX } from "react-icons/hi";
 
 const Profile = () => {
   const { user, isAuthenticated, isLoading } = useAuth0();
   const [ users, setUsers ] = useState([]);
   const [ loading, setLoading ] = useState(false);
-  const [hasPosted, setHasPosted] = useState(false);
-  const [editBox, setEditBox] = useState(false);
+  const [hasPosted, setHasPosted] = useState(sessionStorage.getItem("hasPosted") === "true");
+  const [open, setOpen] = useState(false);
+
+  const popUp =
   
   useEffect(()=> {
     setLoading(true);
@@ -39,12 +41,15 @@ const Profile = () => {
             setUsers(currentUsers => [...currentUsers, res.data]);
             setHasPosted(true); 
             console.log(res.data)
+            sessionStorage.setItem("hasPosted", "true");
           })
           .catch((error) => {
             console.log(error);
+            
           });
       } else {
         setHasPosted(true); 
+        sessionStorage.setItem("hasPosted", "true");
     }}
   }, [isLoading, isAuthenticated, user, hasPosted]);
   
@@ -54,40 +59,60 @@ const Profile = () => {
   }
   
   return (
-    <div className="">
-            <nav className="bg-red-100 p-4 flex flex-row justify-center"> 
-              <Link className="text-center w-full font-semibold text-3xl" to="/">
-                <div className="text-center w-full font-semibold text-3xl">RU SCHEDULING</div>
-              </Link>
-                <div className="min-w-fit">
-                {isLoading && <div>Loading</div>}
-                {(!isLoading && !isAuthenticated) ? <LoginButton/> : 
-                    <div className="min-w-fit flex flex-row align-middle min-h-full">
-                        <div className="pl-2"> <LogoutButton/> </div>
-                        
-                    </div>
-                }
-                
-  
-                </div>
-                
-            </nav>
-            
-            
-            <div>
-                    {isAuthenticated && 
-                    <div>
-                      <div className="flex flex-row">
-                        Your Major: {user.major ? user.major : 'No major set'}
-                        <button className="m-1 p-1 bg-gray-100 b-1 rounded-md" onClick={null}>Edit Major</button>
-                      </div>
-                      <div className="flex flex-col">
-                        Your Minor: {user.minor ? user.minor : 'No minor set'}
-                      </div>
-                    </div>
-                      }
-                </div>
+    <div className="bg-blue">
+      {open && isAuthenticated &&
+      <div className="absolute min-w-[50%] min-h-[50%] bg-gray-500 p-3 m-5 ">
+        <div className="flex flex-row min-w-full justify-start align-middle">
+          <div className="grow text-center align-middle min-h-full font-semibold text-2xl">
+            EDIT PROFILE
+          </div>
+          <HiOutlineX className="h-8 w-8 cursor-pointer stroke-red-900" onClick={() => setOpen(!open)}/>
+        <div/>
         </div>
+        <div>Set Major To: </div>
+      </div>
+      }
+      <nav className="bg-stone-500 p-4 flex flex-row justify-center "> 
+        <Link className="m-auto" to="/">
+          <div className="text-center w-full font-semibold text-3xl">RU SCHEDULING</div>
+        </Link>
+          <div className="min-w-fit">
+          {isLoading && <div>Loading</div>}
+          {(!isLoading && !isAuthenticated) ? <LoginButton/> : 
+              <div className="min-w-fit flex flex-row align-middle min-h-full">
+                  <div className="pl-2"> <LogoutButton/> </div>
+                  
+              </div>
+          }
+          
+
+          </div>
+          
+      </nav>
+      
+      
+      <div>
+        {isAuthenticated && 
+        <div className="h-full min-w-full">
+          <div className="bg-slate-200 rounded-md p-5 m-5 w-fit mx-auto">
+          <div className="flex flex-row justify-center text-lg font-semibold">
+            Your Major 
+          </div>
+          <div className="flex flex-row justify-center">
+            {user.major ? user.major : 'No major set'}
+          </div>
+          <div className="flex flex-row justify-center text-lg font-semibold">
+            Your Minor 
+          </div>
+          <div className="flex flex-row justify-center">
+            {user.minor ? user.minor : 'No minor set'}
+          </div>
+          <button className="border border-black p-1 m-1 bg-gray-200 rounded-sm hover:bg-gray-300" onClick={() => setOpen(!open)}>Edit Profile</button>
+          </div>
+        </div>
+          }
+      </div>
+    </div>
   )
 }
 
