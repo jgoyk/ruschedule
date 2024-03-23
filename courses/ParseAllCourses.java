@@ -1,13 +1,13 @@
 package courses;
 
-import java.util.HashMap;
-import java.util.Arrays;
-import java.util.ArrayList;
-import java.util.Scanner;
-import java.io.File;
 import java.io.FileNotFoundException;
-import java.io.PrintWriter;
+import java.io.File;
 import java.io.IOException;
+import java.io.PrintWriter;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Scanner;
 
 public class ParseAllCourses {
     public static void main(String[] args) throws Exception {
@@ -26,7 +26,7 @@ public class ParseAllCourses {
         
         //make output file
         try {
-            File output = new File("courses/allCourses.txt");
+            File output = new File("courses/allCourses.json");
             if (output.createNewFile()) {
                 System.out.println("File created: " + output.getName());
             } else {
@@ -38,7 +38,7 @@ public class ParseAllCourses {
         }
 
         //go through hashmap and write out all the courses
-        PrintWriter out = new PrintWriter("courses/allCourses.txt");
+        PrintWriter out = new PrintWriter("courses/allCourses.json");
         out.println("[");
         
         //we want to print out the courses in order
