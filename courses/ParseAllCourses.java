@@ -26,7 +26,7 @@ public class ParseAllCourses {
         
         //make output file
         try {
-            File output = new File("allCourses.txt");
+            File output = new File("courses/allCourses.txt");
             if (output.createNewFile()) {
                 System.out.println("File created: " + output.getName());
             } else {
@@ -38,7 +38,7 @@ public class ParseAllCourses {
         }
 
         //go through hashmap and write out all the courses
-        PrintWriter out = new PrintWriter("allCourses.txt");
+        PrintWriter out = new PrintWriter("courses/allCourses.txt");
         out.println("[");
         
         //we want to print out the courses in order
@@ -47,7 +47,7 @@ public class ParseAllCourses {
         for (String courseNum : allCourses.keySet()) {
             courseNumbers[counter++] = courseNum;
         }
-        sort(courseNumbers, 0, courseNumbers.length - 1);
+        Arrays.sort(courseNumbers);
 
         //now we can print
         for (String courseNum : courseNumbers) {
@@ -71,7 +71,7 @@ public class ParseAllCourses {
                 for (String core : allCourses.get(courseNum).getCoreCodes()) {
                     out.print("\n      \"");
                     out.print(core);
-                    out.print("\","); //ctrl+f replace ",\n    \]," with "\n    \],"
+                    out.print("\","); //ctrl+f replace ",\n    \]" with "\n    ]"
                 }
                 out.println("\n    ],");
             }
@@ -186,74 +186,4 @@ public class ParseAllCourses {
         sc.close();
 
     }
-
-    // Main function that sorts arr[l..r] using
-    // merge()
-    private static void sort(String arr[], int l, int r) {
-        if (l < r) {
- 
-            // Find the middle point
-            int m = l + (r - l) / 2;
- 
-            // Sort first and second halves
-            sort(arr, l, m);
-            sort(arr, m + 1, r);
- 
-            // Merge the sorted halves
-            merge(arr, l, m, r);
-        }
-    }
-
-    // Merges two subarrays of arr[].
-    // First subarray is arr[l...m]
-    // Second subarray is arr[m+1...r]
-    private static void merge(String arr[], int l, int m, int r) {
-        // Find sizes of two subarrays to be merged
-        int n1 = m - l + 1;
-        int n2 = r - m;
- 
-        // Create temp arrays
-        String L[] = new String[n1];
-        String R[] = new String[n2];
- 
-        // Copy data to temp arrays
-        for (int i = 0; i < n1; ++i)
-            L[i] = arr[l + i];
-        for (int j = 0; j < n2; ++j)
-            R[j] = arr[m + 1 + j];
- 
-        // Merge the temp arrays
- 
-        // Initial indices of first and second subarrays
-        int i = 0, j = 0;
- 
-        // Initial index of merged subarray array
-        int k = l;
-        while (i < n1 && j < n2) {
-            if (L[i].compareTo(R[j]) <= 0) {
-                arr[k] = L[i];
-                i++;
-            }
-            else {
-                arr[k] = R[j];
-                j++;
-            }
-            k++;
-        }
- 
-        // Copy remaining elements of L[] if any
-        while (i < n1) {
-            arr[k] = L[i];
-            i++;
-            k++;
-        }
- 
-        // Copy remaining elements of R[] if any
-        while (j < n2) {
-            arr[k] = R[j];
-            j++;
-            k++;
-        }
-    }
-
 }
