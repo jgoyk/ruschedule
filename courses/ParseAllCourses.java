@@ -84,7 +84,7 @@ public class ParseAllCourses {
             //prereqs
             out.print("    \"prereqs\": \"");
             if (allCourses.get(courseNum).getPrereqs() == null) {
-                out.println("\"");
+                out.println("\",");
             } else {
                 for (ArrayList<ArrayList<String>> layer1 : allCourses.get(courseNum).getPrereqs()) {
                     for (ArrayList<String> layer2 : layer1) {
@@ -96,7 +96,17 @@ public class ParseAllCourses {
                     }
                     out.print("OR "); //ctrl+f: replace "AND OR" with "OR"
                 }
-                out.println("\""); //ctrl+f: replace "OR \"" with "\""
+                out.println("\","); //ctrl+f: replace "OR \"" with "\""
+            }
+
+            //semester(s) offered
+            out.print("    \"semesters\": \"");
+            if (allCourses.get(courseNum).getSemsOffered()[0] && allCourses.get(courseNum).getSemsOffered()[1]) {
+                out.println("Fall and Spring\"");
+            } else if (allCourses.get(courseNum).getSemsOffered()[0]) {
+                out.println("Fall\"");
+            } else if (allCourses.get(courseNum).getSemsOffered()[1]) {
+                out.println("Spring\"");
             }
 
             out.println("  },"); //delete very last comma
