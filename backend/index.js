@@ -1,21 +1,28 @@
-import app from "./server.js"
 import mongodb from "mongodb"
 import dotenv from "dotenv"
+import mongoose from "mongoose"
+import express from "express";
 dotenv.config()
- 
-const MongoClient = mongodb.MongoClient
 
-const port = process.env.port || 5000
+const app = express();
+const port = process.env.PORT || 8000
 
-MongoClient.connect(
-    process.env.RESTREVIEWS_DB_URI,
-    {
-        poolsize: 50,
-        wtimeout: 2500,
-        useNewUrlParse: true
-    }
-).catch(err=>{
-    app.listen(port, () => {
-        console.log(`listening on port ${port}`)
+app.get('/', (req,res) => {
+    console.log(req);
+    return response.status(234).send("Server Running")
+});
+
+
+
+mongoose
+    .connect(process.env.MONGO_DB_URI)
+    .then(() => {
+        console.log("App connected to DB")
+        app.listen(port, () => {
+            console.log(`listening on port ${port}`)
+        });
     })
-})
+    .catch((error) => {
+        console.log(error)
+    })
+
