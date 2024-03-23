@@ -1,0 +1,970 @@
+African Area Studies
+Program Type: Minor
+Program Code: 016
+Department: African Area Studies
+School: SAS
+African Languages
+Program Type: Minor
+Program Code: 013A
+Department: AMESALL
+School: SAS
+African, Middle Eastern & South Asian Languages & Literatures
+Program Type: Minor
+Program Code: 013
+Department: AMESALL
+School: SAS
+African, Middle Eastern & South Asian Languages & Literatures - Regional (BA)
+Program Type: Major
+Program Code: 013
+Department: AMESALL
+School: SAS
+Africana Studies (BA)
+Program Type: Minor, Major
+Program Code: 014
+Department: Africana Studies
+School: SAS
+Agroecology
+Program Type: Minor
+Program Code: 019
+Department: Plant Biology
+School: SEBS
+American Studies (BA)
+Program Type: Minor, Major
+Program Code: 050
+Department: American Studies
+School: SAS
+Animal Science
+Program Type: Minor
+Program Code: 067
+Department: Animal Science
+School: SEBS
+Anthropology - Cultural (BA)
+Program Type: Minor, Major
+Program Code: 070C
+Department: Anthropology
+School: SAS
+Anthropology -Evolutionary (BS)
+Program Type: Minor, Major
+Program Code: 071
+Department: Anthropology
+School: SAS
+Anthropology -General (BA)
+Program Type: Minor, Major
+Program Code: 070
+Department: Anthropology
+School: SAS
+Arabic
+Program Type: Minor
+Program Code: 074
+Department: AMESALL
+School: SAS
+Archaeology
+Program Type: Minor
+Program Code: 075
+Department: Anthropology
+School: SAS
+Architectural Studies
+Program Type: Minor
+Program Code: 076
+Department: Art History
+School: SAS
+Art
+Program Type: Minor
+Program Code: 080
+Department: Visual Arts
+School: MSGA
+Art (BA)
+Program Type: Major
+Program Code: 080
+Department: Visual Arts
+School: MGSA
+Art History (BA)
+Program Type: Minor, Major
+Program Code: 082
+Department: Art History
+School: SAS
+Asian American Studies
+Program Type: Minor
+Program Code: 051
+Department: American Studies
+School: SAS
+Asian Studies (BA)
+Program Type: Minor, Major
+Program Code: 098
+Department: Asian Languages and Cultures
+School: SAS
+Astrobiology
+Program Type: Minor
+Program Code: 101
+Department: Earth and Planetary Sciences
+School: SAS
+Astronomy
+Program Type: Minor
+Program Code: 100
+Department: Physics and Astronomy
+School: SAS
+Astrophysics (BS)
+Program Type: Major, Credit Intensive
+Program Code: 105
+Department: Physics and Astronomy
+School: SAS
+Biochemistry
+Program Type: Minor
+Program Code: 115
+Department: Biochemistry and Microbiology
+School: SEBS
+Biological Sciences (BA)
+Program Type: Minor, Major, Credit Intensive
+Program Code: 119
+Department: Division of Life Sciences
+School: SAS
+Biomathematics (BA)
+Program Type: Major, Credit Intensive
+Program Code: 122
+Department: Mathematics
+School: SAS
+Business Administration
+Program Type: Minor
+Program Code: 135
+Department: Rutgers Business School
+School: RBS
+Business and Technical Writing
+Program Type: Minor
+Program Code: 355
+Department: Writing Program
+School: SAS
+Cell Biology and Neuroscience (BA)
+Program Type: Major, Credit Intensive
+Program Code: 146
+Department: Cell Biology and Neuroscience
+School: SAS
+Chemistry
+Program Type: Minor
+Program Code: 160
+Department: Chemistry and Chemical Biology
+School: SAS
+Chemistry - Business/Law (BA)
+Program Type: Major, Credit Intensive
+Program Code: 160E
+Department: Chemistry and Chemical Biology
+School: SAS
+Chemistry - Chemical Biology (BA)
+Program Type: Major, Credit Intensive
+Program Code: 160C
+Department: Chemistry and Chemical Biology
+School: SAS
+Chemistry - Chemical Physics (BA)
+Program Type: Major, Credit Intensive
+Program Code: 160F
+Department: Chemistry and Chemical Biology
+School: SAS
+Chemistry - Core Option (BA)
+Program Type: Major, Credit Intensive
+Program Code: 160
+Department: Chemistry and Chemical Biology
+School: SAS
+Chemistry - Environmental (BA)
+Program Type: Major, Credit Intensive
+Program Code: 160D
+Department: Chemistry and Chemical Biology
+School: SAS
+Chemistry - Forensic Chemistry (BA)
+Program Type: Major, Credit Intensive
+Program Code: 160M
+Department: Chemistry and Chemical Biology
+School: SAS
+Chemistry - General American Chemical Society (ACS) (BA)
+Program Type: Major, Credit Intensive
+Program Code: 160G
+Department: Chemistry and Chemical Biology
+School: SAS
+Chemistry Education
+Program Type: Minor
+Program Code: 160E
+Department: Chemistry and Chemical Biology
+School: SAS
+Chinese (BA)
+Program Type: Minor, Major
+Program Code: 165
+Department: Asian Languages and Cultures
+School: SAS
+Cinema Studies (BA)
+Program Type: Minor, Major
+Program Code: 175
+Department: Cinema Studies
+School: SAS
+Classical Humanities
+Program Type: Minor
+Program Code: 190
+Department: Classics
+School: SAS
+Classics - Classical Humanities (BA)
+Program Type: Major
+Program Code: 190
+Department: Classics
+School: SAS
+Classics - Greek and Latin (BA)
+Program Type: Major
+Program Code: 190C
+Department: Classics
+School: SAS
+Classics - Greek Option (BA)
+Program Type: Major
+Program Code: 190B
+Department: Classics
+School: SAS
+Classics - Latin Option (BA)
+Program Type: Major
+Program Code: 190D
+Department: Classics
+School: SAS
+Cognitive Science (BA)
+Program Type: Minor, Major
+Program Code: 185
+Department: Center for Cognitive Science
+School: SAS
+Communication - Health & Wellness Communication (BA)
+Program Type: Major
+Program Code: 192H
+Department: Communication
+School: SC&I
+Communication - Leadership in Organizations & Community (BA)
+Program Type: Major
+Program Code: 192L
+Department: Communication
+School: SC&I
+Communication - Relationships and Family Communication (BA)
+Program Type: Major
+Program Code: 192R
+Department: Communication
+School: SC&I
+Communication - Strategic Public Communication and Public Relations (BA)
+Program Type: Major
+Program Code: 192P
+Department: Communication
+School: SC&I
+Communication (BA)
+Program Type: Major
+Program Code: 192
+Department: Communication
+School: SC&I
+Comparative and Critical Race and Ethnic Studies
+Program Type: Minor
+Program Code: 199
+Department: American Studies
+School: SAS
+Comparative Literature - Advanced Studies in Literature (BA)
+Program Type: Major, Credit Intensive
+Program Code: 195F
+Department: Comparative Literature
+School: SAS
+Comparative Literature (BA)
+Program Type: Minor, Major
+Program Code: 195
+Department: Comparative Literature
+School: SAS
+Computer Science
+Program Type: Minor
+Program Code: 198
+Department: Computer Science
+School: SAS
+Computer Science (BA)
+Program Type: Major, Credit Intensive
+Program Code: 198
+Department: Computer Science
+School: SAS
+Computer Science (BS)
+Program Type: Major, Credit Intensive
+Program Code: 198S
+Department: Computer Science
+School: SAS
+Creative Expression and the Environment
+Program Type: Minor
+Program Code: 201
+Department: Human Ecology
+School: SEBS
+Creative Writing
+Program Type: Minor
+Program Code: 351
+Department: English
+School: SAS
+Criminal Justice (BA)
+Program Type: Major
+Program Code: 202
+Department: Criminal Justice
+School: SAS
+Criminology
+Program Type: Minor
+Program Code: 204
+Department: Sociology
+School: SAS
+Critical Intelligence Studies
+Program Type: Minor
+Program Code: 205
+Department: Political Science
+School: SAS
+Culinary Nutrition
+Program Type: Minor
+Program Code: 708
+Department: Nutritional Sciences
+School: SEBS
+Dance
+Program Type: Minor
+Program Code: 203
+Department: Dance
+School: MGSA
+Dance (BA)
+Program Type: Major
+Program Code: 203
+Department: Dance
+School: MGSA
+Data Science
+Program Type: Minor
+Program Code: 219
+Department: Data Science Program
+School: SAS
+Data Science- Computer Science Track (BS)
+Program Type: Major, Credit Intensive
+Program Code: 219S
+Department: Computer Science
+School: SAS
+Data Science- Economics Track (BS)
+Program Type: Major, Credit Intensive
+Program Code: 219E
+Department: Computer Science
+School: SAS
+Data Science- Societal Impact Track (BA)
+Program Type: Major
+Program Code: 219O
+Department: Computer Science
+School: SAS
+Data Science- Statistics Track (BA)
+Program Type: Major
+Program Code: 219T
+Department: Computer Science
+School: SAS
+Developmental Psychology
+Program Type: Minor
+Program Code: 835
+Department: Psychology
+School: SAS
+Digital Communication, Information, and Media
+Program Type: Minor
+Program Code: 209
+Department: Communication
+School: SCI
+Disabilities Studies
+Program Type: Minor
+Program Code: 304
+Department: Edward J. Bloustein School of Planning and Public Policy
+School: Bloustein School
+Earth and Planetary Sciences - Environmental Geology Option (BS)
+Program Type: Major, Credit Intensive
+Program Code: 460E
+Department: Earth and Planetary Sciences
+School: SAS
+Earth and Planetary Sciences - General Option (BA)
+Program Type: Major
+Program Code: 460L
+Department: Earth and Planetary Sciences
+School: SAS
+Earth and Planetary Sciences - Geological Sciences (BS)
+Program Type: Minor, Major, Credit Intensive
+Program Code: 460
+Department: Earth and Planetary Sciences
+School: SAS
+Earth and Planetary Sciences - Planetary Science Option (BS)
+Program Type: Major, Credit Intensive
+Program Code: 460P
+Department: Earth and Planetary Sciences
+School: SAS
+Ecology, Evolution, and Natural Resources (BS)
+Program Type: Minor, Major, Credit Intensive
+Program Code: 216
+Department: Ecology, Evolution, and Natural Resources
+School: SEBS
+Economics (BA)
+Program Type: Minor, Major
+Program Code: 220
+Department: Economics
+School: SAS
+Education as a Social Science
+Program Type: Minor
+Program Code: 300
+Department: Graduate School of Education
+School: GSE
+English (BA)
+Program Type: Minor, Major
+Program Code: 350
+Department: English
+School: SAS
+Entomology
+Program Type: Minor
+Program Code: 370
+Department: Entomology
+School: SEBS
+Entrepreneurship
+Program Type: Minor
+Program Code: 382
+Department: Rutgers Business School
+School: RBS
+Environmental and Business Economics
+Program Type: Minor
+Program Code: 373
+Department: Agricultural, Food, and Resource Economics
+School: SEBS
+Environmental Policy, Institutions and Behavior
+Program Type: Minor
+Program Code: 374
+Department: Human Ecology
+School: SEBS
+Environmental Sciences
+Program Type: Minor
+Program Code: 375
+Department: Environmental Sciences
+School: SEBS
+Environmental Studies
+Program Type: Minor
+Program Code: 381
+Department: Geography
+School: SAS
+Environmental Studies (BA) *Second Major only
+Program Type: Major
+Program Code: 381
+Department: Geography
+School: SAS
+European Studies (BA)
+Program Type: Minor, Major
+Program Code: 360
+Department: Center for European Studies
+School: SAS
+Exercise Science (BS)
+Program Type: Major, Credit Intensive
+Program Code: 377
+Department: Kinesiology and Health
+School: SAS
+Food Science
+Program Type: Minor
+Program Code: 400
+Department: Food Science
+School: SEBS
+French (BA)
+Program Type: Minor, Major
+Program Code: 420
+Department: French
+School: SAS
+Gender and Media
+Program Type: Minor
+Program Code: 438
+Department: Communication and Women's and Gender Studies
+School: SAS/ SC&I
+Genetics (BA)
+Program Type: Major, Credit Intensive
+Program Code: 447
+Department: Genetics
+School: SAS
+Geography (BA)
+Program Type: Minor, Major
+Program Code: 450
+Department: Geography
+School: SAS
+German (BA)
+Program Type: Minor, Major
+Program Code: 470
+Department: German, Russian, and East European Languages and Literatures
+School: SAS
+Global Humanities (BA)
+Program Type: Major
+Program Code: 013G
+Department: AMESALL
+School: SAS
+Government and Business
+Program Type: Minor
+Program Code: 793
+Department: Political Science
+School: SAS
+Greek - Ancient
+Program Type: Minor
+Program Code: 491
+Department: Classics
+School: SAS
+Greek - Modern
+Program Type: Minor
+Program Code: 489
+Department: Modern Greek Studies
+School: SAS
+Health Administration (BS)
+Program Type: Minor, Major, Credit Intensive
+Program Code: 501
+Department: Edward J. Bloustein School of Planning and Public Policy
+School: Bloustein School
+Health and Society
+Program Type: Minor
+Program Code: 502
+Department: Sociology
+School: SAS
+Hebrew - Modern
+Program Type: Minor
+Program Code: 503
+Department: Jewish Studies
+School: SAS
+Hindi
+Program Type: Minor
+Program Code: 505
+Department: AMESALL
+School: SAS
+History - Ancient History and Classics (BA)
+Program Type: Major
+Program Code: 510C
+Department: History
+School: SAS
+History - Law and History
+Program Type: Minor
+Program Code: 518
+Department: History
+School: SAS
+History - STEM in Society
+Program Type: Minor
+Program Code: 519
+Department: History
+School: SAS
+History (BA)
+Program Type: Minor, Major
+Program Code: 510
+Department: History
+School: SAS
+History/French (BA)
+Program Type: Major
+Program Code: 513
+Department: History
+School: SAS
+History/Political Science (BA)
+Program Type: Major
+Program Code: 514
+Department: History
+School: SAS
+Holocaust Studies
+Program Type: Minor
+Program Code: 564
+Department: Jewish Studies
+School: SAS
+Horticultural Therapy
+Program Type: Minor
+Program Code: 530
+Department: Plant Biology
+School: SEBS
+Human Resource Management (BA)
+Program Type: Minor, Major
+Program Code: 533
+Department: School of Management and Labor Relations
+School: SMLR
+Hungarian
+Program Type: Minor
+Program Code: 535
+Department: German, Russian, and East European Languages and Literatures
+School: SAS
+Information Technology and Informatics (BA)
+Program Type: Major
+Program Code: 547
+Department: Library and Information Science
+School: SC&I
+International and Global Studies
+Program Type: Minor
+Program Code: 558
+Department: Geography
+School: SAS
+Italian (BA)
+Program Type: Minor, Major
+Program Code: 560
+Department: Italian
+School: SAS
+Italian Studies (BA)
+Program Type: Minor, Major
+Program Code: 560I
+Department: Italian
+School: SAS
+Japanese (BA)
+Program Type: Minor, Major
+Program Code: 565
+Department: Asian Languages and Cultures
+School: SAS
+Jewish Studies - Advanced Language (BA)
+Program Type: Major
+Program Code: 563L
+Department: Jewish Studies
+School: SAS
+Jewish Studies (BA)
+Program Type: Minor, Major
+Program Code: 563
+Department: Jewish Studies
+School: SAS
+Journalism and Media Studies - Global Media (BA)
+Program Type: Major
+Program Code: 567G
+Department: Journalism and Media Studies
+School: SC&I
+Journalism and Media Studies -Sports Journalism (BA)
+Program Type: Major
+Program Code: 567S
+Department: Journalism and Media Studies
+School: SCI
+Journalism and Media Studies (BA)
+Program Type: Major
+Program Code: 567
+Department: Journalism and Media Studies
+School: SC&I
+Korean (BA)
+Program Type: Minor, Major
+Program Code: 574
+Department: Asian Languages and Cultures
+School: SAS
+Labor Studies
+Program Type: Minor
+Program Code: 575
+Department: School of Management and Labor Relations
+School: SMLR
+Labor Studies - Diversity in the Workplace Option
+Program Type: Minor
+Program Code: 575D
+Department: School of Management and Labor Relations
+School: SMLR
+Labor Studies - Labor Unions and Social Movements
+Program Type: Minor
+Program Code: 575U
+Department: School of Management and Labor Relations
+School: SMLR
+Labor Studies - Law and the Workplace Option
+Program Type: Minor
+Program Code: 575L
+Department: School of Management and Labor Relations
+School: SMLR
+Labor Studies - Work Organization and Management
+Program Type: Minor
+Program Code: 575M
+Department: School of Management and Labor Relations
+School: SMLR
+Labor Studies - Work, Globalization, and Migration
+Program Type: Minor
+Program Code: 575G
+Department: School of Management and Labor Relations
+School: SMLR
+Labor Studies and Employment Relations (BA)
+Program Type: Major
+Program Code: 578
+Department: School of Management and Labor Relations
+School: SMLR
+Language and Culture of Ancient Israel
+Program Type: Minor
+Program Code: 583
+Department: Jewish Studies
+School: SAS
+Latin
+Program Type: Minor
+Program Code: 580
+Department: Classics
+School: SAS
+Latin American Studies (BA)
+Program Type: Minor, Major
+Program Code: 590
+Department: Center for Latin American Studies
+School: SAS
+Latino and Caribbean Studies (BA)
+Program Type: Minor, Major
+Program Code: 595
+Department: Latino and Caribbean Studies
+School: SAS
+Linguistics (BA)
+Program Type: Minor, Major
+Program Code: 615
+Department: Linguistics
+School: SAS
+Marine Sciences - Marine Biology/Biological Oceanography (BS)
+Program Type: Major, Credit Intensive
+Program Code: 628D
+Department: Marine and Coastal Sciences
+School: SEBS
+Marine Sciences - Marine Chemistry (BS)
+Program Type: Major, Credit Intensive
+Program Code: 628E
+Department: Marine and Coastal Sciences
+School: SEBS
+Marine Sciences - Marine Geology (BS)
+Program Type: Major, Credit Intensive
+Program Code: 628F
+Department: Marine and Coastal Sciences
+School: SEBS
+Marine Sciences - Physical Oceanography (BS)
+Program Type: Major, Credit Intensive
+Program Code: 628G
+Department: Marine and Coastal Sciences
+School: SEBS
+Marine Sciences (BS)
+Program Type: Minor
+Program Code: 628
+Department: Marine and Coastal Sciences
+School: SEBS
+Mathematics - Actuarial (BA)
+Program Type: Major, Credit Intensive
+Program Code: 640L
+Department: Mathematics
+School: SAS
+Mathematics (BA or BS)
+Program Type: Minor, Major
+Program Code: 640
+Department: Mathematics
+School: SAS
+Medical Ethics and Health Policy
+Program Type: Minor
+Program Code: 652
+Department: Edward J. Bloustein School of Planning and Public Policy
+School: Bloustein School
+Medieval Studies (BA)
+Program Type: Minor, Major
+Program Code: 667
+Department: Medieval Studies
+School: SAS
+Meteorology
+Program Type: Minor
+Program Code: 670
+Department: Meteorology
+School: SEBS
+Microbiology (BS)
+Program Type: Major, Credit Intensive
+Program Code: 680
+Department: Biochemistry and Microbiology
+School: SEBS
+Middle Eastern Studies (BA)
+Program Type: Minor, Major
+Program Code: 685
+Department: Center for Middle Eastern Studies
+School: SAS
+Military Science- Aerospace Science Track
+Program Type: Minor
+Program Code: 693
+Department: Military Education
+School: SAS
+Military Science- Military Science Track
+Program Type: Minor
+Program Code: 691
+Department: Military Education
+School: SAS
+Military Science- Naval Science Track
+Program Type: Minor
+Program Code: 692
+Department: Military Education
+School: SAS
+Military Science- Non-commissioning
+Program Type: Minor
+Program Code: 695
+Department: Military Education
+School: SAS
+Molecular Biology and Biochemistry (BA)
+Program Type: Major, Credit Intensive
+Program Code: 694
+Department: Molecular Biology and Biochemistry
+School: SAS
+Music
+Program Type: Minor
+Program Code: 700
+Department: Music
+School: MGSA
+Music (BA)
+Program Type: Major
+Program Code: 700
+Department: Music
+School: MGSA
+Music Technology
+Program Type: Minor
+Program Code: 679
+Department: Music
+School: MGSA
+Nutrition
+Program Type: Minor
+Program Code: 707
+Department: Nutritional Sciences
+School: SEBS
+Organizational Leadership
+Program Type: Minor
+Program Code: 713
+Department: Organizational Leadership Program
+School: SAS
+Persian
+Program Type: Minor
+Program Code: 723
+Department: AMESALL
+School: SAS
+Philosophy (BA)
+Program Type: Minor, Major
+Program Code: 730
+Department: Philosophy
+School: SAS
+Philosophy, Politics, and Economics (PPE)
+Program Type: Minor
+Program Code: 792
+Department: Political Science, Philosophy, Economics
+School: SAS
+Physics - Applied (BS)
+Program Type: Major, Credit Intensive
+Program Code: 750P
+Department: Physics and Astronomy
+School: SAS
+Physics - Engineering Dual Degree
+Program Type: Major, Credit Intensive
+Program Code: 750G
+Department: Physics and Astronomy
+School: SAS
+Physics - General Option (BA)
+Program Type: Major, Credit Intensive
+Program Code: 750
+Department: Physics and Astronomy
+School: SAS
+Physics - Minor
+Program Type: Minor
+Program Code: 750
+Department: Physics and Astronomy
+School: SAS
+Physics - Planetary Physics Option (BS)
+Program Type: Major, Credit Intensive
+Program Code: 750K
+Department: Physics and Astronomy
+School: SAS
+Physics - Professional Option (BS)
+Program Type: Major, Credit Intensive
+Program Code: 750D
+Department: Physics and Astronomy
+School: SAS
+Planning and Public Policy (BA)
+Program Type: Minor, Major
+Program Code: 762
+Department: Edward J. Bloustein School of Planning and Public Policy
+School: Bloustein School
+Plant Science
+Program Type: Minor
+Program Code: 776
+Department: Plant Biology
+School: SEBS
+Political Science (BA)
+Program Type: Minor, Major
+Program Code: 790
+Department: Political Science
+School: SAS
+Portuguese (BA)
+Program Type: Minor, Major
+Program Code: 810
+Department: Spanish and Portuguese
+School: SAS
+Psychology (BA)
+Program Type: Minor, Major
+Program Code: 830
+Department: Psychology
+School: SAS
+Public Administration and Management
+Program Type: Minor
+Program Code: 843
+Department: Edward J. Bloustein School of Planning and Public Policy
+School: EJBSPPP
+Public Health (BS)
+Program Type: Minor, Major, Credit Intensive
+Program Code: 832
+Department: Edward J. Bloustein School of Planning and Public Policy
+School: Bloustein School
+Public Policy (BS)
+Program Type: Minor, Major, Credit Intensive
+Program Code: 833
+Department: Edward J. Bloustein School of Planning and Public Policy
+School: Bloustein School
+Quantitative Economics
+Program Type: Minor
+Program Code: 221
+Department: Economics
+School: SAS
+Religion (BA)
+Program Type: Minor, Major
+Program Code: 840
+Department: Religion
+School: SAS
+Russian (BA)
+Program Type: Minor, Major
+Program Code: 860
+Department: German, Russian, and East European Languages and Literatures
+School: SAS
+Sexualities Studies
+Program Type: Minor
+Program Code: 888
+Department: Women's and Gender Studies
+School: SAS
+Social Justice
+Program Type: Minor
+Program Code: 904
+Department: Women's and Gender Studies
+School: SAS
+Social Work (BA)
+Program Type: Major, Credit Intensive
+Program Code: 910
+Department: School of Social Work
+School: School of Social Work
+Sociology (BA)
+Program Type: Minor, Major
+Program Code: 920
+Department: Sociology
+School: SAS
+South Asian Studies
+Program Type: Minor
+Program Code: 925
+Department: South Asian Studies
+School: SAS
+Spanish - Spanish Intensive (BA)
+Program Type: Major, Credit Intensive
+Program Code: 940F
+Department: Spanish and Portuguese
+School: SAS
+Spanish (BA)
+Program Type: Minor, Major
+Program Code: 940
+Department: Spanish and Portuguese
+School: SAS
+Sport Management (BS)
+Program Type: Minor, Major, Credit Intensive
+Program Code: 955
+Department: Kinesiology and Health
+School: SAS
+Statistics (BA)
+Program Type: Minor, Major
+Program Code: 960
+Department: Statistics and Biostatistics
+School: SAS
+Statistics/Mathematics (BA)
+Program Type: Major, Credit Intensive
+Program Code: 961
+Department: Statistics
+School: SAS
+Theater Arts
+Program Type: Minor
+Program Code: 965
+Department: Theater
+School: MGSA
+Theater Arts (BA)
+Program Type: Major
+Program Code: 965
+Department: Theater
+School: MGSA
+Turkish
+Program Type: Minor
+Program Code: 973
+Department: AMESALL
+School: SAS
+Urban Planning and Design (BS)
+Program Type: Minor, Major, Credit Intensive
+Program Code: 971
+Department: Edward J. Bloustein School of Planning and Public Policy
+School: Bloustein School
+Urban Studies
+Program Type: Minor
+Program Code: 975
+Department: Edward J. Bloustein School of Planning and Public Policy
+School: Bloustein School
+Women’s, Gender, and Sexuality Studies (BA)
+Program Type: Minor, Major
+Program Code: 988
+Department: Women’s, Gender, and Sexuality Studies
+School: SAS

@@ -1,0 +1,1166 @@
+[
+  {
+    "name": "African Area Studies",
+    "programType": "Minor",
+    "programCode": "016",
+    "school": "SAS"
+  },
+  {
+    "name": "African Languages",
+    "programType": "Minor",
+    "programCode": "013A",
+    "school": "SAS"
+  },
+  {
+    "name": "African, Middle Eastern & South Asian Languages & Literatures",
+    "programType": "Minor",
+    "programCode": "013",
+    "school": "SAS"
+  },
+  {
+    "name": "African, Middle Eastern & South Asian Languages & Literatures - Regional (BA)",
+    "programType": "Major",
+    "programCode": "013",
+    "school": "SAS"
+  },
+  {
+    "name": "Africana Studies (BA)",
+    "programType": "Major, Minor",
+    "programCode": "014",
+    "school": "SAS"
+  },
+  {
+    "name": "Agroecology",
+    "programType": "Minor",
+    "programCode": "019",
+    "school": "SEBS"
+  },
+  {
+    "name": "American Studies (BA)",
+    "programType": "Major, Minor",
+    "programCode": "050",
+    "school": "SAS"
+  },
+  {
+    "name": "Animal Science",
+    "programType": "Minor",
+    "programCode": "067",
+    "school": "SEBS"
+  },
+  {
+    "name": "Anthropology - Cultural (BA)",
+    "programType": "Major, Minor",
+    "programCode": "070C",
+    "school": "SAS"
+  },
+  {
+    "name": "Anthropology -Evolutionary (BS)",
+    "programType": "Major, Minor",
+    "programCode": "071",
+    "school": "SAS"
+  },
+  {
+    "name": "Anthropology -General (BA)",
+    "programType": "Major, Minor",
+    "programCode": "070",
+    "school": "SAS"
+  },
+  {
+    "name": "Arabic",
+    "programType": "Minor",
+    "programCode": "074",
+    "school": "SAS"
+  },
+  {
+    "name": "Archaeology",
+    "programType": "Minor",
+    "programCode": "075",
+    "school": "SAS"
+  },
+  {
+    "name": "Architectural Studies",
+    "programType": "Minor",
+    "programCode": "076",
+    "school": "SAS"
+  },
+  {
+    "name": "Art",
+    "programType": "Minor",
+    "programCode": "080",
+    "school": "MSGA"
+  },
+  {
+    "name": "Art (BA)",
+    "programType": "Major",
+    "programCode": "080",
+    "school": "MGSA"
+  },
+  {
+    "name": "Art History (BA)",
+    "programType": "Major, Minor",
+    "programCode": "082",
+    "school": "SAS"
+  },
+  {
+    "name": "Asian American Studies",
+    "programType": "Minor",
+    "programCode": "051",
+    "school": "SAS"
+  },
+  {
+    "name": "Asian Studies (BA)",
+    "programType": "Major, Minor",
+    "programCode": "098",
+    "school": "SAS"
+  },
+  {
+    "name": "Astrobiology",
+    "programType": "Minor",
+    "programCode": "101",
+    "school": "SAS"
+  },
+  {
+    "name": "Astronomy",
+    "programType": "Minor",
+    "programCode": "100",
+    "school": "SAS"
+  },
+  {
+    "name": "Astrophysics (BS)",
+    "programType": "Major",
+    "programCode": "105",
+    "school": "SAS"
+  },
+  {
+    "name": "Biochemistry",
+    "programType": "Minor",
+    "programCode": "115",
+    "school": "SEBS"
+  },
+  {
+    "name": "Biological Sciences (BA)",
+    "programType": "Major, Minor",
+    "programCode": "119",
+    "school": "SAS"
+  },
+  {
+    "name": "Biomathematics (BA)",
+    "programType": "Major",
+    "programCode": "122",
+    "school": "SAS"
+  },
+  {
+    "name": "Business Administration",
+    "programType": "Minor",
+    "programCode": "135",
+    "school": "RBS"
+  },
+  {
+    "name": "Business and Technical Writing",
+    "programType": "Minor",
+    "programCode": "355",
+    "school": "SAS"
+  },
+  {
+    "name": "Cell Biology and Neuroscience (BA)",
+    "programType": "Major",
+    "programCode": "146",
+    "school": "SAS"
+  },
+  {
+    "name": "Chemistry",
+    "programType": "Minor",
+    "programCode": "160",
+    "school": "SAS"
+  },
+  {
+    "name": "Chemistry - Business/Law (BA)",
+    "programType": "Major",
+    "programCode": "160E",
+    "school": "SAS"
+  },
+  {
+    "name": "Chemistry - Chemical Biology (BA)",
+    "programType": "Major",
+    "programCode": "160C",
+    "school": "SAS"
+  },
+  {
+    "name": "Chemistry - Chemical Physics (BA)",
+    "programType": "Major",
+    "programCode": "160F",
+    "school": "SAS"
+  },
+  {
+    "name": "Chemistry - Core Option (BA)",
+    "programType": "Major",
+    "programCode": "160",
+    "school": "SAS"
+  },
+  {
+    "name": "Chemistry - Environmental (BA)",
+    "programType": "Major",
+    "programCode": "160D",
+    "school": "SAS"
+  },
+  {
+    "name": "Chemistry - Forensic Chemistry (BA)",
+    "programType": "Major",
+    "programCode": "160M",
+    "school": "SAS"
+  },
+  {
+    "name": "Chemistry - General American Chemical Society (ACS) (BA)",
+    "programType": "Major",
+    "programCode": "160G",
+    "school": "SAS"
+  },
+  {
+    "name": "Chemistry Education",
+    "programType": "Minor",
+    "programCode": "160E",
+    "school": "SAS"
+  },
+  {
+    "name": "Chinese (BA)",
+    "programType": "Major, Minor",
+    "programCode": "165",
+    "school": "SAS"
+  },
+  {
+    "name": "Cinema Studies (BA)",
+    "programType": "Major, Minor",
+    "programCode": "175",
+    "school": "SAS"
+  },
+  {
+    "name": "Classical Humanities",
+    "programType": "Minor",
+    "programCode": "190",
+    "school": "SAS"
+  },
+  {
+    "name": "Classics - Classical Humanities (BA)",
+    "programType": "Major",
+    "programCode": "190",
+    "school": "SAS"
+  },
+  {
+    "name": "Classics - Greek and Latin (BA)",
+    "programType": "Major",
+    "programCode": "190C",
+    "school": "SAS"
+  },
+  {
+    "name": "Classics - Greek Option (BA)",
+    "programType": "Major",
+    "programCode": "190B",
+    "school": "SAS"
+  },
+  {
+    "name": "Classics - Latin Option (BA)",
+    "programType": "Major",
+    "programCode": "190D",
+    "school": "SAS"
+  },
+  {
+    "name": "Cognitive Science (BA)",
+    "programType": "Major, Minor",
+    "programCode": "185",
+    "school": "SAS"
+  },
+  {
+    "name": "Communication - Health & Wellness Communication (BA)",
+    "programType": "Major",
+    "programCode": "192H",
+    "school": "SC&I"
+  },
+  {
+    "name": "Communication - Leadership in Organizations & Community (BA)",
+    "programType": "Major",
+    "programCode": "192L",
+    "school": "SC&I"
+  },
+  {
+    "name": "Communication - Relationships and Family Communication (BA)",
+    "programType": "Major",
+    "programCode": "192R",
+    "school": "SC&I"
+  },
+  {
+    "name": "Communication - Strategic Public Communication and Public Relations (BA)",
+    "programType": "Major",
+    "programCode": "192P",
+    "school": "SC&I"
+  },
+  {
+    "name": "Communication (BA)",
+    "programType": "Major",
+    "programCode": "192",
+    "school": "SC&I"
+  },
+  {
+    "name": "Comparative and Critical Race and Ethnic Studies",
+    "programType": "Minor",
+    "programCode": "199",
+    "school": "SAS"
+  },
+  {
+    "name": "Comparative Literature - Advanced Studies in Literature (BA)",
+    "programType": "Major",
+    "programCode": "195F",
+    "school": "SAS"
+  },
+  {
+    "name": "Comparative Literature (BA)",
+    "programType": "Major, Minor",
+    "programCode": "195",
+    "school": "SAS"
+  },
+  {
+    "name": "Computer Science",
+    "programType": "Minor",
+    "programCode": "198",
+    "school": "SAS"
+  },
+  {
+    "name": "Computer Science (BA)",
+    "programType": "Major",
+    "programCode": "198",
+    "school": "SAS"
+  },
+  {
+    "name": "Computer Science (BS)",
+    "programType": "Major",
+    "programCode": "198S",
+    "school": "SAS"
+  },
+  {
+    "name": "Creative Expression and the Environment",
+    "programType": "Minor",
+    "programCode": "201",
+    "school": "SEBS"
+  },
+  {
+    "name": "Creative Writing",
+    "programType": "Minor",
+    "programCode": "351",
+    "school": "SAS"
+  },
+  {
+    "name": "Criminal Justice (BA)",
+    "programType": "Major",
+    "programCode": "202",
+    "school": "SAS"
+  },
+  {
+    "name": "Criminology",
+    "programType": "Minor",
+    "programCode": "204",
+    "school": "SAS"
+  },
+  {
+    "name": "Critical Intelligence Studies",
+    "programType": "Minor",
+    "programCode": "205",
+    "school": "SAS"
+  },
+  {
+    "name": "Culinary Nutrition",
+    "programType": "Minor",
+    "programCode": "708",
+    "school": "SEBS"
+  },
+  {
+    "name": "Dance",
+    "programType": "Minor",
+    "programCode": "203",
+    "school": "MGSA"
+  },
+  {
+    "name": "Dance (BA)",
+    "programType": "Major",
+    "programCode": "203",
+    "school": "MGSA"
+  },
+  {
+    "name": "Data Science",
+    "programType": "Minor",
+    "programCode": "219",
+    "school": "SAS"
+  },
+  {
+    "name": "Data Science- Computer Science Track (BS)",
+    "programType": "Major",
+    "programCode": "219S",
+    "school": "SAS"
+  },
+  {
+    "name": "Data Science- Economics Track (BS)",
+    "programType": "Major",
+    "programCode": "219E",
+    "school": "SAS"
+  },
+  {
+    "name": "Data Science- Societal Impact Track (BA)",
+    "programType": "Major",
+    "programCode": "219O",
+    "school": "SAS"
+  },
+  {
+    "name": "Data Science- Statistics Track (BA)",
+    "programType": "Major",
+    "programCode": "219T",
+    "school": "SAS"
+  },
+  {
+    "name": "Developmental Psychology",
+    "programType": "Minor",
+    "programCode": "835",
+    "school": "SAS"
+  },
+  {
+    "name": "Digital Communication, Information, and Media",
+    "programType": "Minor",
+    "programCode": "209",
+    "school": "SCI"
+  },
+  {
+    "name": "Disabilities Studies",
+    "programType": "Minor",
+    "programCode": "304",
+    "school": "Bloustein School"
+  },
+  {
+    "name": "Earth and Planetary Sciences - Environmental Geology Option (BS)",
+    "programType": "Major",
+    "programCode": "460E",
+    "school": "SAS"
+  },
+  {
+    "name": "Earth and Planetary Sciences - General Option (BA)",
+    "programType": "Major",
+    "programCode": "460L",
+    "school": "SAS"
+  },
+  {
+    "name": "Earth and Planetary Sciences - Geological Sciences (BS)",
+    "programType": "Major, Minor",
+    "programCode": "460",
+    "school": "SAS"
+  },
+  {
+    "name": "Earth and Planetary Sciences - Planetary Science Option (BS)",
+    "programType": "Major",
+    "programCode": "460P",
+    "school": "SAS"
+  },
+  {
+    "name": "Ecology, Evolution, and Natural Resources (BS)",
+    "programType": "Major, Minor",
+    "programCode": "216",
+    "school": "SEBS"
+  },
+  {
+    "name": "Economics (BA)",
+    "programType": "Major, Minor",
+    "programCode": "220",
+    "school": "SAS"
+  },
+  {
+    "name": "Education as a Social Science",
+    "programType": "Minor",
+    "programCode": "300",
+    "school": "GSE"
+  },
+  {
+    "name": "English (BA)",
+    "programType": "Major, Minor",
+    "programCode": "350",
+    "school": "SAS"
+  },
+  {
+    "name": "Entomology",
+    "programType": "Minor",
+    "programCode": "370",
+    "school": "SEBS"
+  },
+  {
+    "name": "Entrepreneurship",
+    "programType": "Minor",
+    "programCode": "382",
+    "school": "RBS"
+  },
+  {
+    "name": "Environmental and Business Economics",
+    "programType": "Minor",
+    "programCode": "373",
+    "school": "SEBS"
+  },
+  {
+    "name": "Environmental Policy, Institutions and Behavior",
+    "programType": "Minor",
+    "programCode": "374",
+    "school": "SEBS"
+  },
+  {
+    "name": "Environmental Sciences",
+    "programType": "Minor",
+    "programCode": "375",
+    "school": "SEBS"
+  },
+  {
+    "name": "Environmental Studies",
+    "programType": "Minor",
+    "programCode": "381",
+    "school": "SAS"
+  },
+  {
+    "name": "Environmental Studies (BA) *Second Major only",
+    "programType": "Major",
+    "programCode": "381",
+    "school": "SAS"
+  },
+  {
+    "name": "European Studies (BA)",
+    "programType": "Major, Minor",
+    "programCode": "360",
+    "school": "SAS"
+  },
+  {
+    "name": "Exercise Science (BS)",
+    "programType": "Major",
+    "programCode": "377",
+    "school": "SAS"
+  },
+  {
+    "name": "Food Science",
+    "programType": "Minor",
+    "programCode": "400",
+    "school": "SEBS"
+  },
+  {
+    "name": "French (BA)",
+    "programType": "Major, Minor",
+    "programCode": "420",
+    "school": "SAS"
+  },
+  {
+    "name": "Gender and Media",
+    "programType": "Minor",
+    "programCode": "438",
+    "school": "SAS/ SC&I"
+  },
+  {
+    "name": "Genetics (BA)",
+    "programType": "Major",
+    "programCode": "447",
+    "school": "SAS"
+  },
+  {
+    "name": "Geography (BA)",
+    "programType": "Major, Minor",
+    "programCode": "450",
+    "school": "SAS"
+  },
+  {
+    "name": "German (BA)",
+    "programType": "Major, Minor",
+    "programCode": "470",
+    "school": "SAS"
+  },
+  {
+    "name": "Global Humanities (BA)",
+    "programType": "Major",
+    "programCode": "013G",
+    "school": "SAS"
+  },
+  {
+    "name": "Government and Business",
+    "programType": "Minor",
+    "programCode": "793",
+    "school": "SAS"
+  },
+  {
+    "name": "Greek - Ancient",
+    "programType": "Minor",
+    "programCode": "491",
+    "school": "SAS"
+  },
+  {
+    "name": "Greek - Modern",
+    "programType": "Minor",
+    "programCode": "489",
+    "school": "SAS"
+  },
+  {
+    "name": "Health Administration (BS)",
+    "programType": "Major, Minor",
+    "programCode": "501",
+    "school": "Bloustein School"
+  },
+  {
+    "name": "Health and Society",
+    "programType": "Minor",
+    "programCode": "502",
+    "school": "SAS"
+  },
+  {
+    "name": "Hebrew - Modern",
+    "programType": "Minor",
+    "programCode": "503",
+    "school": "SAS"
+  },
+  {
+    "name": "Hindi",
+    "programType": "Minor",
+    "programCode": "505",
+    "school": "SAS"
+  },
+  {
+    "name": "History - Ancient History and Classics (BA)",
+    "programType": "Major",
+    "programCode": "510C",
+    "school": "SAS"
+  },
+  {
+    "name": "History - Law and History",
+    "programType": "Minor",
+    "programCode": "518",
+    "school": "SAS"
+  },
+  {
+    "name": "History - STEM in Society",
+    "programType": "Minor",
+    "programCode": "519",
+    "school": "SAS"
+  },
+  {
+    "name": "History (BA)",
+    "programType": "Major, Minor",
+    "programCode": "510",
+    "school": "SAS"
+  },
+  {
+    "name": "History/French (BA)",
+    "programType": "Major",
+    "programCode": "513",
+    "school": "SAS"
+  },
+  {
+    "name": "History/Political Science (BA)",
+    "programType": "Major",
+    "programCode": "514",
+    "school": "SAS"
+  },
+  {
+    "name": "Holocaust Studies",
+    "programType": "Minor",
+    "programCode": "564",
+    "school": "SAS"
+  },
+  {
+    "name": "Horticultural Therapy",
+    "programType": "Minor",
+    "programCode": "530",
+    "school": "SEBS"
+  },
+  {
+    "name": "Human Resource Management (BA)",
+    "programType": "Major, Minor",
+    "programCode": "533",
+    "school": "SMLR"
+  },
+  {
+    "name": "Hungarian",
+    "programType": "Minor",
+    "programCode": "535",
+    "school": "SAS"
+  },
+  {
+    "name": "Information Technology and Informatics (BA)",
+    "programType": "Major",
+    "programCode": "547",
+    "school": "SC&I"
+  },
+  {
+    "name": "International and Global Studies",
+    "programType": "Minor",
+    "programCode": "558",
+    "school": "SAS"
+  },
+  {
+    "name": "Italian (BA)",
+    "programType": "Major, Minor",
+    "programCode": "560",
+    "school": "SAS"
+  },
+  {
+    "name": "Italian Studies (BA)",
+    "programType": "Major, Minor",
+    "programCode": "560I",
+    "school": "SAS"
+  },
+  {
+    "name": "Japanese (BA)",
+    "programType": "Major, Minor",
+    "programCode": "565",
+    "school": "SAS"
+  },
+  {
+    "name": "Jewish Studies - Advanced Language (BA)",
+    "programType": "Major",
+    "programCode": "563L",
+    "school": "SAS"
+  },
+  {
+    "name": "Jewish Studies (BA)",
+    "programType": "Major, Minor",
+    "programCode": "563",
+    "school": "SAS"
+  },
+  {
+    "name": "Journalism and Media Studies - Global Media (BA)",
+    "programType": "Major",
+    "programCode": "567G",
+    "school": "SC&I"
+  },
+  {
+    "name": "Journalism and Media Studies -Sports Journalism (BA)",
+    "programType": "Major",
+    "programCode": "567S",
+    "school": "SCI"
+  },
+  {
+    "name": "Journalism and Media Studies (BA)",
+    "programType": "Major",
+    "programCode": "567",
+    "school": "SC&I"
+  },
+  {
+    "name": "Korean (BA)",
+    "programType": "Major, Minor",
+    "programCode": "574",
+    "school": "SAS"
+  },
+  {
+    "name": "Labor Studies",
+    "programType": "Minor",
+    "programCode": "575",
+    "school": "SMLR"
+  },
+  {
+    "name": "Labor Studies - Diversity in the Workplace Option",
+    "programType": "Minor",
+    "programCode": "575D",
+    "school": "SMLR"
+  },
+  {
+    "name": "Labor Studies - Labor Unions and Social Movements",
+    "programType": "Minor",
+    "programCode": "575U",
+    "school": "SMLR"
+  },
+  {
+    "name": "Labor Studies - Law and the Workplace Option",
+    "programType": "Minor",
+    "programCode": "575L",
+    "school": "SMLR"
+  },
+  {
+    "name": "Labor Studies - Work Organization and Management",
+    "programType": "Minor",
+    "programCode": "575M",
+    "school": "SMLR"
+  },
+  {
+    "name": "Labor Studies - Work, Globalization, and Migration",
+    "programType": "Minor",
+    "programCode": "575G",
+    "school": "SMLR"
+  },
+  {
+    "name": "Labor Studies and Employment Relations (BA)",
+    "programType": "Major",
+    "programCode": "578",
+    "school": "SMLR"
+  },
+  {
+    "name": "Language and Culture of Ancient Israel",
+    "programType": "Minor",
+    "programCode": "583",
+    "school": "SAS"
+  },
+  {
+    "name": "Latin",
+    "programType": "Minor",
+    "programCode": "580",
+    "school": "SAS"
+  },
+  {
+    "name": "Latin American Studies (BA)",
+    "programType": "Major, Minor",
+    "programCode": "590",
+    "school": "SAS"
+  },
+  {
+    "name": "Latino and Caribbean Studies (BA)",
+    "programType": "Major, Minor",
+    "programCode": "595",
+    "school": "SAS"
+  },
+  {
+    "name": "Linguistics (BA)",
+    "programType": "Major, Minor",
+    "programCode": "615",
+    "school": "SAS"
+  },
+  {
+    "name": "Marine Sciences - Marine Biology/Biological Oceanography (BS)",
+    "programType": "Major",
+    "programCode": "628D",
+    "school": "SEBS"
+  },
+  {
+    "name": "Marine Sciences - Marine Chemistry (BS)",
+    "programType": "Major",
+    "programCode": "628E",
+    "school": "SEBS"
+  },
+  {
+    "name": "Marine Sciences - Marine Geology (BS)",
+    "programType": "Major",
+    "programCode": "628F",
+    "school": "SEBS"
+  },
+  {
+    "name": "Marine Sciences - Physical Oceanography (BS)",
+    "programType": "Major",
+    "programCode": "628G",
+    "school": "SEBS"
+  },
+  {
+    "name": "Marine Sciences (BS)",
+    "programType": "Minor",
+    "programCode": "628",
+    "school": "SEBS"
+  },
+  {
+    "name": "Mathematics - Actuarial (BA)",
+    "programType": "Major",
+    "programCode": "640L",
+    "school": "SAS"
+  },
+  {
+    "name": "Mathematics (BA or BS)",
+    "programType": "Major, Minor",
+    "programCode": "640",
+    "school": "SAS"
+  },
+  {
+    "name": "Medical Ethics and Health Policy",
+    "programType": "Minor",
+    "programCode": "652",
+    "school": "Bloustein School"
+  },
+  {
+    "name": "Medieval Studies (BA)",
+    "programType": "Major, Minor",
+    "programCode": "667",
+    "school": "SAS"
+  },
+  {
+    "name": "Meteorology",
+    "programType": "Minor",
+    "programCode": "670",
+    "school": "SEBS"
+  },
+  {
+    "name": "Microbiology (BS)",
+    "programType": "Major",
+    "programCode": "680",
+    "school": "SEBS"
+  },
+  {
+    "name": "Middle Eastern Studies (BA)",
+    "programType": "Major, Minor",
+    "programCode": "685",
+    "school": "SAS"
+  },
+  {
+    "name": "Military Science- Aerospace Science Track",
+    "programType": "Minor",
+    "programCode": "693",
+    "school": "SAS"
+  },
+  {
+    "name": "Military Science- Military Science Track",
+    "programType": "Minor",
+    "programCode": "691",
+    "school": "SAS"
+  },
+  {
+    "name": "Military Science- Naval Science Track",
+    "programType": "Minor",
+    "programCode": "692",
+    "school": "SAS"
+  },
+  {
+    "name": "Military Science- Non-commissioning",
+    "programType": "Minor",
+    "programCode": "695",
+    "school": "SAS"
+  },
+  {
+    "name": "Molecular Biology and Biochemistry (BA)",
+    "programType": "Major",
+    "programCode": "694",
+    "school": "SAS"
+  },
+  {
+    "name": "Music",
+    "programType": "Minor",
+    "programCode": "700",
+    "school": "MGSA"
+  },
+  {
+    "name": "Music (BA)",
+    "programType": "Major",
+    "programCode": "700",
+    "school": "MGSA"
+  },
+  {
+    "name": "Music Technology",
+    "programType": "Minor",
+    "programCode": "679",
+    "school": "MGSA"
+  },
+  {
+    "name": "Nutrition",
+    "programType": "Minor",
+    "programCode": "707",
+    "school": "SEBS"
+  },
+  {
+    "name": "Organizational Leadership",
+    "programType": "Minor",
+    "programCode": "713",
+    "school": "SAS"
+  },
+  {
+    "name": "Persian",
+    "programType": "Minor",
+    "programCode": "723",
+    "school": "SAS"
+  },
+  {
+    "name": "Philosophy (BA)",
+    "programType": "Major, Minor",
+    "programCode": "730",
+    "school": "SAS"
+  },
+  {
+    "name": "Philosophy, Politics, and Economics (PPE)",
+    "programType": "Minor",
+    "programCode": "792",
+    "school": "SAS"
+  },
+  {
+    "name": "Physics - Applied (BS)",
+    "programType": "Major",
+    "programCode": "750P",
+    "school": "SAS"
+  },
+  {
+    "name": "Physics - Engineering Dual Degree",
+    "programType": "Major",
+    "programCode": "750G",
+    "school": "SAS"
+  },
+  {
+    "name": "Physics - General Option (BA)",
+    "programType": "Major",
+    "programCode": "750",
+    "school": "SAS"
+  },
+  {
+    "name": "Physics - Minor",
+    "programType": "Minor",
+    "programCode": "750",
+    "school": "SAS"
+  },
+  {
+    "name": "Physics - Planetary Physics Option (BS)",
+    "programType": "Major",
+    "programCode": "750K",
+    "school": "SAS"
+  },
+  {
+    "name": "Physics - Professional Option (BS)",
+    "programType": "Major",
+    "programCode": "750D",
+    "school": "SAS"
+  },
+  {
+    "name": "Planning and Public Policy (BA)",
+    "programType": "Major, Minor",
+    "programCode": "762",
+    "school": "Bloustein School"
+  },
+  {
+    "name": "Plant Science",
+    "programType": "Minor",
+    "programCode": "776",
+    "school": "SEBS"
+  },
+  {
+    "name": "Political Science (BA)",
+    "programType": "Major, Minor",
+    "programCode": "790",
+    "school": "SAS"
+  },
+  {
+    "name": "Portuguese (BA)",
+    "programType": "Major, Minor",
+    "programCode": "810",
+    "school": "SAS"
+  },
+  {
+    "name": "Psychology (BA)",
+    "programType": "Major, Minor",
+    "programCode": "830",
+    "school": "SAS"
+  },
+  {
+    "name": "Public Administration and Management",
+    "programType": "Minor",
+    "programCode": "843",
+    "school": "EJBSPPP"
+  },
+  {
+    "name": "Public Health (BS)",
+    "programType": "Major, Minor",
+    "programCode": "832",
+    "school": "Bloustein School"
+  },
+  {
+    "name": "Public Policy (BS)",
+    "programType": "Major, Minor",
+    "programCode": "833",
+    "school": "Bloustein School"
+  },
+  {
+    "name": "Quantitative Economics",
+    "programType": "Minor",
+    "programCode": "221",
+    "school": "SAS"
+  },
+  {
+    "name": "Religion (BA)",
+    "programType": "Major, Minor",
+    "programCode": "840",
+    "school": "SAS"
+  },
+  {
+    "name": "Russian (BA)",
+    "programType": "Major, Minor",
+    "programCode": "860",
+    "school": "SAS"
+  },
+  {
+    "name": "Sexualities Studies",
+    "programType": "Minor",
+    "programCode": "888",
+    "school": "SAS"
+  },
+  {
+    "name": "Social Justice",
+    "programType": "Minor",
+    "programCode": "904",
+    "school": "SAS"
+  },
+  {
+    "name": "Social Work (BA)",
+    "programType": "Major",
+    "programCode": "910",
+    "school": "School of Social Work"
+  },
+  {
+    "name": "Sociology (BA)",
+    "programType": "Major, Minor",
+    "programCode": "920",
+    "school": "SAS"
+  },
+  {
+    "name": "South Asian Studies",
+    "programType": "Minor",
+    "programCode": "925",
+    "school": "SAS"
+  },
+  {
+    "name": "Spanish - Spanish Intensive (BA)",
+    "programType": "Major",
+    "programCode": "940F",
+    "school": "SAS"
+  },
+  {
+    "name": "Spanish (BA)",
+    "programType": "Major, Minor",
+    "programCode": "940",
+    "school": "SAS"
+  },
+  {
+    "name": "Sport Management (BS)",
+    "programType": "Major, Minor",
+    "programCode": "955",
+    "school": "SAS"
+  },
+  {
+    "name": "Statistics (BA)",
+    "programType": "Major, Minor",
+    "programCode": "960",
+    "school": "SAS"
+  },
+  {
+    "name": "Statistics/Mathematics (BA)",
+    "programType": "Major",
+    "programCode": "961",
+    "school": "SAS"
+  },
+  {
+    "name": "Theater Arts",
+    "programType": "Minor",
+    "programCode": "965",
+    "school": "MGSA"
+  },
+  {
+    "name": "Theater Arts (BA)",
+    "programType": "Major",
+    "programCode": "965",
+    "school": "MGSA"
+  },
+  {
+    "name": "Turkish",
+    "programType": "Minor",
+    "programCode": "973",
+    "school": "SAS"
+  },
+  {
+    "name": "Urban Planning and Design (BS)",
+    "programType": "Major, Minor",
+    "programCode": "971",
+    "school": "Bloustein School"
+  },
+  {
+    "name": "Urban Studies",
+    "programType": "Minor",
+    "programCode": "975",
+    "school": "Bloustein School"
+  },
+  {
+    "name": "Women’s, Gender, and Sexuality Studies (BA)",
+    "programType": "Major, Minor",
+    "programCode": "988",
+    "school": "SAS"
+  }
+]
