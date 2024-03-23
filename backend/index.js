@@ -4,6 +4,8 @@ import mongoose from "mongoose"
 import express from "express";
 import cors from "cors";
 import userRoute from "./routes/userRoute.js "
+import courseRoute from "./routes/courseRoute.js "
+import majminRoute from "./routes/majminRoute.js "
 
 dotenv.config()
 
@@ -20,6 +22,8 @@ app.get('/', (req,res) => {
 });
 
 app.use('/users', userRoute)
+app.use('/courses', courseRoute)
+app.use('/majmins', majminRoute)
 
 mongoose
     .connect(process.env.MONGO_DB_URI)

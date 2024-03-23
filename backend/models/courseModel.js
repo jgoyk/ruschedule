@@ -23,7 +23,7 @@ const courseSchema = mongoose.Schema(
             required: false,
         },
         semsOffered: {
-            type: Array,
+            type: String,
             required: false,
         }
     }, {
