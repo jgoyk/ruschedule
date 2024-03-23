@@ -57039,7 +57039,7 @@
   },
   {
     "courseString": "37:575:301",
-    "title": "LABOR AND DEMOCRACY",
+    "title": "LABAND DEMOCRACY",
     "coreCodes": [
       "CCO"
     ],
