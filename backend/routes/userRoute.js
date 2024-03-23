@@ -2,6 +2,7 @@ import express from "express"
 import { User } from "../models/userModel.js"
 const router = express.Router()
 
+//get all
 router.get('/', async (req,res) => {
     try {
         const users = await User.find({})
@@ -15,6 +16,7 @@ router.get('/', async (req,res) => {
     }
 })
 
+//get by id
 router.get('/:id', async (req,res) => {
     try {
         const { id } = req.params;
@@ -29,6 +31,7 @@ router.get('/:id', async (req,res) => {
     }
 })
 
+//add user
 router.post('/', async(req,res) => {
     try{
         if(
@@ -50,6 +53,7 @@ router.post('/', async(req,res) => {
     }
 })
 
+//update by id
 router.put('/:id', async(req,res) => {
     try{
         if(

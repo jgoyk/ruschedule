@@ -12,7 +12,7 @@ const userSchema = mongoose.Schema(
         },
         minor: {
             type: Number,
-            required: false ,
+            required: false,
         },
         courses: {
             type: Array,
