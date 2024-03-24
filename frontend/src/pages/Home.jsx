@@ -220,7 +220,7 @@ const Home = () => {
   };
 
 
-
+  
   const terms = ['1', '2'];
   const years = ['1', '2', '3', '4']; 
   return (
@@ -292,6 +292,7 @@ const Home = () => {
             <div className="text-center">
               Major: {currentMajor?.name}
             </div>
+            {currentMajor?.requiredCourses.length >0 && <div> 
             <div className="text-center pt-5 font-semibold text-lg ">
               Required Courses
             </div>
@@ -304,7 +305,7 @@ const Home = () => {
               {currentMajor?.requiredCourses[1][0]} of the following groups
             </div>
             <div className="text-center">
-              <div className="flex flex-row justify-around">
+              <div className="flex flex-row justify-around">   
               {currentMajor?.requiredCourses[1].map((course, index) =>  index>0 && 
               <div key={index} className="flex flex-col ">
                 <div>{course[0]} from this group</div>
@@ -314,8 +315,11 @@ const Home = () => {
               </div>
               )}
               </div>
+              </div>
             </div>
+            }
           </div>
+                
           </div>
           
           <div className="w-1/4 h-screen min-h-screen bg-gray-200 p-5">
