@@ -6,9 +6,6 @@ import { useAuth0 } from "@auth0/auth0-react";
 import LogoutButton from "../components/LogoutButton";
 import { Link } from "react-router-dom";
 import { CgProfile } from "react-icons/cg";
-import { AiOutlineEdit } from "react-icons/ai";
-import { BsInfoCircle } from "react-icons/bs";
-import { MdOutlineAddBox, MdOutlineDelete } from "react-icons/md";
 import { DndProvider, useDrag, useDrop } from 'react-dnd';
 import { HTML5Backend } from 'react-dnd-html5-backend';
 
@@ -28,7 +25,8 @@ const Home = () => {
   const [courseInList, setCourseInList] = useState();
   const [currentMajor, setCurrentMajor] = useState();
   const [box, setBox] = useState(false);
-  
+
+
   const onDropCourse = (courseId, year, term) => {
     
     console.log(`Dropped course ${courseId} into ${year} year and ${term}`);
@@ -184,15 +182,6 @@ const Home = () => {
       </div>
     );
   };
-  
-  const DroppableList = ({ onDropCourse  }) => {
-    const [{ isOver }, drop] = useDrop(() => ({
-      accept: 'course',
-      drop: (item, monitor) => onDropCourse(item),
-      collect: (monitor) => ({
-        isOver: !!monitor.isOver(),
-    }),
-  }));
 
   if (!currentMajor){
     axios.get(`http://localhost:5001/majorsminors/${currentUser?.major}`)
@@ -205,6 +194,15 @@ const Home = () => {
       
     });
   }
+
+  const DroppableList = ({ onDropCourse  }) => {
+    const [{ isOver }, drop] = useDrop(() => ({
+      accept: 'course',
+      drop: (item, monitor) => onDropCourse(item),
+      collect: (monitor) => ({
+        isOver: !!monitor.isOver(),
+    }),
+  }));
     return (
       <div className="bg-gray-200 min-h-[100%] h-full" ref={drop} style={{ opacity: isOver ? 0.5 : 1 }}>
         <div className="flex flex-col min-h-full grow">
@@ -229,7 +227,7 @@ const Home = () => {
         <nav className="bg-stone-500 p-4 flex flex-row justify-end min-h-full">
           <div className="grow min-h-full flex flex-col my-auto">
             <div className="justify-center text-center w-full font-semibold text-3xl">
-              RU SCHEDULING
+              R U SCHEDULING?
             </div>
           </div>
           <div className="min-w-fit flex flex-row justify-end">
@@ -238,8 +236,8 @@ const Home = () => {
               <LoginButton />
             ) : (
               <div className="min-w-fit flex flex-row align-middle min-h-full">
-                <div className="p-2 min-w-fit flex flex-row bg-stone-600 text-white rounded-full hover:bg-stone-200 hover:text-black border hover:border-black">
-                  <Link to="/profile" className="flex flex-row min-h-full min-w-fit align-middle hover:">
+                <div className="p-2 min-w-fit flex flex-row bg-stone-600 text-white rounded-full hover:bg-stone-200 hover:text-black border-2 shadow-lg border-black/50 hover:border-black">
+                  <Link to="/profile" className="flex flex-row min-h-full min-w-fit align-middle ">
                     <CgProfile className="align-middle min-h-full h-6 w-6 " />
                     <div className="p-1">Profile</div>
                   </Link>

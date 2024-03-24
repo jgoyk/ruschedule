@@ -4,7 +4,7 @@ import Home from "./pages/Home.jsx";
 import Profile from "./pages/Profile.jsx";
 import Schedule from "./pages/Schedule.jsx";
 import Login from "./pages/Login.jsx";
-
+import './App.css';
 
 const App = () => {
   return (

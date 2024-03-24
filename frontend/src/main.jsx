@@ -19,7 +19,7 @@ root.render(
         redirect_uri: "http://localhost:5173"
       }}
     >
-        <App />
+        <App className="oswald-font"/>
     </Auth0Provider>
   </BrowserRouter>,
 );
