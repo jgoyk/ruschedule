@@ -33,12 +33,23 @@ const Profile = () => {
     const courseExists = courseList.some(course => course.courseString === formData.courseCode);
     const courseInList = currentUser.courses.some(course => course[2] === formData.courseCode);
     if (!courseExists) {
-      errors.username = "Course is not in our database";
+      errors.exists = "Course is not in our database";
       alert("Course is invalid")
     }
     if (courseInList) {
-      errors.password = "Course already in your courses";
+      errors.inList = "Course already in your courses";
       alert("Course is already in account")
+    }
+    
+    const validYear = formData.courseYear !== ""
+    const validTerm = formData.courseTerm !== ""
+    if (!validYear) {
+      errors.year = "Select a valid year"
+      alert("Please select a year")
+    }
+    if (!validTerm) {
+      errors.term = "Select a valid term"
+      alert("Please select a term")
     }
 
     setFormData((prevState) => ({ ...prevState, errors }));
@@ -60,11 +71,11 @@ const Profile = () => {
   const handleSubmit = (event) => {
     event.preventDefault(); 
     
-
     if (!validateData()) {
       console.log("error")
       console.log(errors)
       setErrors({});
+      formData.courseCode = ""
       return; 
     }
   
@@ -78,7 +89,9 @@ const Profile = () => {
       minor: currentUser.minor,
       courses: [...currentUser.courses,[formData.courseTerm, formData.courseYear, formData.courseCode]]
     }
-    console.log(updatedUser)
+    formData.courseCode = ""
+    setCurrentUser(updatedUser)
+    setOpen(!open)
     axios.put(`http://localhost:5001/users/${currentUser.username}`, updatedUser)
       .then((res) => {
         setLoading(false)
@@ -88,7 +101,7 @@ const Profile = () => {
         console.log(error);
         setLoading(false)
       });
-    };
+  };
 
   const handleSubmitMajor = (event) => {
     event.preventDefault(); 
@@ -98,7 +111,8 @@ const Profile = () => {
       minor: currentUser.minor,
       courses: currentUser.courses
     }
-    console.log(updatedUser)
+    setCurrentUser(updatedUser)
+    setOpen(!open)
     axios.put(`http://localhost:5001/users/${currentUser.username}`, updatedUser)
       .then((res) => {
         setLoading(false)
@@ -108,7 +122,36 @@ const Profile = () => {
         console.log(error);
         setLoading(false)
       });
-    };
+  };
+
+  const handleDelete = (event) => {
+    event.preventDefault(); 
+    
+    const useremail1 = user.email;
+    console.log(formData)
+    setLoading(true)
+    const updatedUser = {
+      username: currentUser.username,
+      major: currentUser.major,
+      minor: currentUser.minor,
+      courses: currentUser.courses.filter((courseInList) => (
+        courseInList[2] !== formData.courseCodeDel
+      ))
+    }
+    formData.courseCodeDel = ""
+    setCurrentUser(updatedUser)
+    setOpen(!open)
+    axios.put(`http://localhost:5001/users/${currentUser.username}`, updatedUser)
+      .then((res) => {
+        setLoading(false)
+        console.log("updated")
+      })
+      .catch((error) => {
+        console.log(error);
+        setLoading(false)
+      });
+  };
+
   useEffect(()=> {
     setLoading(true);
     axios
@@ -205,7 +248,7 @@ const Profile = () => {
             <HiOutlineX className="h-8 w-8 cursor-pointer stroke-red-900" onClick={() => setOpen(!open)}/>
           <div/>
           </div>
-          <div className="text-white text-center ">Add Course by COURSE CODE</div>
+          <div className="text-white text-center">Add Course by COURSE CODE</div>
           <form onSubmit={handleSubmit}>
             <div className="">
               <select name="courseTerm" value={formData.courseTerm} className="m-2 p-1" onChange={handleChange} >
@@ -220,25 +263,27 @@ const Profile = () => {
                 <option value="3">Junior</option>
                 <option value="4">Senior</option>
                 <option value="5">Other Course with Credit</option>
-
               </select>
-                <input className="p-1" name="courseCode" onChange={handleChange} value={formData.courseCode} type="text" placeholder="01:111:198" />
-            </div>
-            <div className="flex flex-row min-w-full justify-center">
-              <button className="rounded-md p-2 bg-gray-300 justify-center hover:scale-110 hover:text-white hover:bg-gray-700" type="submit">Submit</button>
+                <input className="m-2 p-1" name="courseCode" onChange={handleChange} value={formData.courseCode} type="text" placeholder="01:198:112" />
+                <button className="rounded-md m-2 p-2 bg-gray-300 justify-center hover:scale-110 hover:text-white hover:bg-gray-700" type="submit">Submit</button>
             </div>
           </form>
           <form onSubmit={handleSubmitMajor}>
             <div className="">
               <select name="major" value={formData.major} className="m-2 p-1" onChange={handleChangeMajor} >
-                <option value="" disabled >Select Major</option>
+                <option value="" disabled selected="selected">{majorList?.find(major => major.programCode === currentUser.major)?.name}</option>
                 {majorList && majorList.map((major, index) => (
                   <option key={index} value={major.programCode}>{major.name}</option>
                 ))}
               </select>
+              <button className="rounded-md m-2 p-2 bg-gray-300 justify-center hover:scale-110 hover:text-white hover:bg-gray-700" type="submit">Submit</button>
             </div>
-            <div className="flex flex-row min-w-full justify-center">
-              <button className="rounded-md p-2 bg-gray-300 justify-center hover:scale-110 hover:text-white hover:bg-gray-700" type="submit">Submit</button>
+          </form>
+          <div className="pt-3 pl-2 text-white text-left ">Remove Course by COURSE CODE</div>
+          <form onSubmit={handleDelete}>
+            <div className="flex flex-row min-w-full justify-left">
+              <input className="m-2 p-2" name="courseCodeDel" onChange={handleChange} value={formData.courseCodeDel} type="text" placeholder="01:198:112" />
+              <button className="rounded-md m-2 p-2 bg-gray-300 justify-center hover:scale-110 hover:text-white hover:bg-gray-700" type="submit">Submit</button>
             </div>
           </form>
         </div>
