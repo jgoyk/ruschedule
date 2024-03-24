@@ -22,6 +22,14 @@ public class MajorsAndMinors {
             line = sc.nextLine();
             boolean major = line.contains("Major");
             boolean minor = line.contains("Minor");
+            int pType = 0;
+            if (major && minor) {
+                pType = 2;
+            } else if (major) {
+                pType = 1;
+            } else if (minor) {
+                pType = 0;
+            }
 
             //program code
             line = sc.nextLine();
@@ -35,7 +43,7 @@ public class MajorsAndMinors {
             String school = line.substring(8);
 
             //putting it together
-            allMajorsAndMinors.add(new MajMin(name, major, minor, code, school));
+            allMajorsAndMinors.add(new MajMin(name, pType, code, school));
 
         }
         
@@ -67,11 +75,11 @@ public class MajorsAndMinors {
 
             //is major and/or minor
             out.print("    \"programType\": \"");
-            if (x.isMajor() && x.isMinor()) {
+            if (x.getProgramType() == 2) {
                 out.print("Major, Minor");
-            } else if (x.isMajor()) {
+            } else if (x.getProgramType() == 1) {
                 out.print("Major");
-            } else if (x.isMinor()) {
+            } else if (x.getProgramType() == 0) {
                 out.print("Minor");
             }
             out.println("\","); 
