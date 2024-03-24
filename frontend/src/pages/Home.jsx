@@ -309,7 +309,7 @@ const Home = () => {
             </div>
             <div className="text-center">
               <div className="flex flex-row justify-around">   
-              {currentMajor?.requiredCourses.map((course, index) =>  index>1 && 
+              {currentMajor?.requiredCourses.map((course, index) =>  index > 1 && 
               <div key={index} className="flex flex-col ">
                 <div>{course[0]} from this group</div>
                 {course.map((cors, idx) => idx > 0 && (
