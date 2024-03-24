@@ -251,18 +251,18 @@ const Profile = () => {
           <div className="text-white text-center">Add Course by COURSE CODE</div>
           <form onSubmit={handleSubmit}>
             <div className="">
-              <select name="courseTerm" value={formData.courseTerm} className="m-2 p-1" onChange={handleChange} >
-                <option value="" disabled >Select Term</option>
-                <option value="1">Fall</option>
-                <option value="2">Spring</option>
-              </select>
               <select name="courseYear" value={formData.courseYear} className="m-2 p-1" onChange={handleChange} >
-                <option value="" disabled >Select Term</option>
+                <option value="" disabled >Select Year</option>
                 <option value="1">Freshman</option>
                 <option value="2">Sophomore</option>
                 <option value="3">Junior</option>
                 <option value="4">Senior</option>
                 <option value="5">Other Course with Credit</option>
+              </select>
+              <select name="courseTerm" value={formData.courseTerm} className="m-2 p-1" onChange={handleChange} >
+                <option value="" disabled >Select Term</option>
+                <option value="1">Fall</option>
+                <option value="2">Spring</option>
               </select>
                 <input className="m-2 p-1" name="courseCode" onChange={handleChange} value={formData.courseCode} type="text" placeholder="01:198:112" />
                 <button className="rounded-md m-2 p-2 bg-gray-300 justify-center hover:scale-110 hover:text-white hover:bg-gray-700" type="submit">Submit</button>

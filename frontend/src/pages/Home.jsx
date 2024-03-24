@@ -319,6 +319,27 @@ const Home = () => {
             </div>
             }
           </div>
+
+          {/* <div>
+            <div className="pt-5 text-center font-semibold text-xl" >
+              SAS CORE Requirements
+            </div>
+            <div className="text-center pt-5 pb-2 font-semibold text-lg ">
+              Required Tracks
+            </div>
+            <div className="text-center">
+              <div className="flex flex-row justify-around">   
+              {"SAS CORE".requiredTracks.map((track, index) =>  index>0 && 
+              <div key={index} className="flex flex-col ">
+                <div>{track[0]} from this group</div>
+                {track.map((cors, idx) => idx > 0 && (
+                  <div key={idx} className={`p-2  ${currentUser?.courses.some(corps => corps[2] === cors) ? "text-green-600" : "text-red-500"}`}>{cors} </div>
+                ))}
+              </div>
+              )}
+              </div>
+            </div>
+          </div> */}
                 
           </div>
           
