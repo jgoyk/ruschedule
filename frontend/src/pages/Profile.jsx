@@ -31,7 +31,7 @@ const Profile = () => {
   const validateData = () => {
     let errors = {};
     const courseExists = courseList.some(course => course.courseString === formData.courseCode);
-    const courseInList = currentUser.courses.some(course => course[1] === formData.courseCode);
+    const courseInList = currentUser.courses.some(course => course[2] === formData.courseCode);
     if (!courseExists) {
       errors.username = "Course is not in our database";
       alert("Course is invalid")
@@ -271,7 +271,7 @@ const Profile = () => {
             Your Major 
           </div>
           <div className="flex flex-row justify-center">
-            {currentUser.major ? majorList.find(major => major.programCode === currentUser.major)?.name : 'No major set'}
+            {currentUser.major ? majorList?.find(major => major.programCode === currentUser.major)?.name : 'No major set'}
           </div>
           <div className="flex flex-row justify-center text-lg font-semibold">
             Your Minor 

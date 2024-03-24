@@ -17,6 +17,14 @@ const userSchema = mongoose.Schema(
         courses: {
             type: Array,
             required: false,
+        },
+        year: {
+            type: String,
+            required: false,
+        },
+        currentSem: {
+            type: String,
+            required: false,
         }
     }, {
         timestamps: true,

@@ -21,11 +21,8 @@ router.get('/', async (req,res) => {
 router.get('/:id', async (req,res) => {
     try {
         const { id } = req.params;
-        const majmin = await MajorMinor.findById(id)
-        return res.status(201).json({
-            count: majmin.length,
-            data: majmin
-        })
+        const majmin = await MajorMinor.find({programCode: id})
+        return res.status(201).json(majmin)
     } catch(error) {
         console.log(error.message)
         res.status(500).send({ message: error.message })
