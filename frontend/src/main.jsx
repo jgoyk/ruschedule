@@ -16,7 +16,7 @@ root.render(
       domain={domain}
       clientId={clientid}
       authorizationParams={{
-        redirect_uri: "http://localhost:5173"
+        redirect_uri: import.meta.env.VITE_LINK
       }}
     >
         <App />
