@@ -9,14 +9,14 @@ import { Auth0Provider } from '@auth0/auth0-react';
 const root = createRoot(document.getElementById('root'));
 const domain = import.meta.env.VITE_DOMAIN
 const clientid = import.meta.env.VITE_CLIENT_ID
-
+const uri = import.meta.env.VITE_URI
 root.render(
   <BrowserRouter>
     <Auth0Provider
       domain={domain}
       clientId={clientid}
       authorizationParams={{
-        redirect_uri: "http://localhost:5173"
+        redirect_uri: uri
       }}
     >
         <App className="oswald-font"/>

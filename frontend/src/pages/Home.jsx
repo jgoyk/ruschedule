@@ -38,7 +38,7 @@ const Home = () => {
       courses: [...currentUser.courses,[term, year, courseId]]
     }
     setCurrentUser(updatedUser)
-    axios.put(`http://localhost:5001/users/${currentUser.username}`, updatedUser)
+    axios.put(`${import.meta.env.VITE_LINK}/users/${currentUser.username}`, updatedUser)
       .then((res) => {
         setLoading(false)
         console.log("updated")
@@ -58,7 +58,7 @@ const Home = () => {
       courses: currentUser.courses.filter(cor => (cor[2] != course.id))
     }
     setCurrentUser(updatedUser)
-      axios.put(`http://localhost:5001/users/${currentUser.username}`, updatedUser)
+      axios.put(`${import.meta.env.VITE_LINK}/users/${currentUser.username}`, updatedUser)
       .then((res) => {
         setLoading(false)
         console.log("deleted")
@@ -74,9 +74,9 @@ const Home = () => {
       setLoading(true);
       try {
         
-        const usersResponse = await axios.get("http://localhost:5001/users");
+        const usersResponse = await axios.get(`${import.meta.env.VITE_LINK}/users`);
         setUsers(usersResponse.data.data)
-        const coursesResponse = await axios.get(`http://localhost:5001/courses`);
+        const coursesResponse = await axios.get(`${import.meta.env.VITE_LINK}/courses`);
         console.log(coursesResponse.data)
         setCourses(coursesResponse.data.data);
       } catch (error) {
@@ -154,7 +154,7 @@ const Home = () => {
   })
   
   if(!currentUser && isAuthenticated){
-    axios.get(`http://localhost:5001/users/${user.email}`)
+    axios.get(`${import.meta.env.VITE_LINK}/users/${user.email}`)
       .then((res) => {
         setCurrentUser(res.data[0])
       })
@@ -184,7 +184,7 @@ const Home = () => {
   };
 
   if (!currentMajor){
-    axios.get(`http://localhost:5001/majorsminors/${currentUser?.major}`)
+    axios.get(`${import.meta.env.VITE_LINK}/majorsminors/${currentUser?.major}`)
     .then((res) => {
       console.log(res.data[0])
       setCurrentMajor(res.data[0])

@@ -92,7 +92,7 @@ const Profile = () => {
     formData.courseCode = ""
     setCurrentUser(updatedUser)
     setOpen(!open)
-    axios.put(`http://localhost:5001/users/${currentUser.username}`, updatedUser)
+    axios.put(`${import.meta.env.VITE_LINK}/users/${currentUser.username}`, updatedUser)
       .then((res) => {
         setLoading(false)
         console.log("updated")
@@ -113,7 +113,7 @@ const Profile = () => {
     }
     setCurrentUser(updatedUser)
     setOpen(!open)
-    axios.put(`http://localhost:5001/users/${currentUser.username}`, updatedUser)
+    axios.put(`${import.meta.env.VITE_LINK}/users/${currentUser.username}`, updatedUser)
       .then((res) => {
         setLoading(false)
         console.log("updated")
@@ -141,7 +141,7 @@ const Profile = () => {
     formData.courseCodeDel = ""
     setCurrentUser(updatedUser)
     setOpen(!open)
-    axios.put(`http://localhost:5001/users/${currentUser.username}`, updatedUser)
+    axios.put(`${import.meta.env.VITE_LINK}/users/${currentUser.username}`, updatedUser)
       .then((res) => {
         setLoading(false)
         console.log("updated")
@@ -155,7 +155,7 @@ const Profile = () => {
   useEffect(()=> {
     setLoading(true);
     axios
-    .get('http://localhost:5001/users')
+    .get(`${import.meta.env.VITE_LINK}/users`)
     .then((response) => {
         setUsers(response.data.data);
         setLoading(false);
@@ -172,7 +172,7 @@ const Profile = () => {
       const emailExists = users.some(user => user.username === useremail);
       
       if (!emailExists) {
-        axios.post('http://localhost:5001/users/', { username: useremail })
+        axios.post(`${import.meta.env.VITE_LINK}/users/`, { username: useremail })
           .then((res) => {
             setUsers(currentUsers => [...currentUsers, res.data]);
             setHasPosted(true); 
@@ -191,7 +191,7 @@ const Profile = () => {
   }, [isLoading, isAuthenticated, user, hasPosted]);
 
   if(!currentUser && isAuthenticated){
-    axios.get(`http://localhost:5001/users/${user.email}`)
+    axios.get(`${import.meta.env.VITE_LINK}/users/${user.email}`)
       .then((res) => {
         setCurrentUser(res.data[0])
       })
@@ -201,7 +201,7 @@ const Profile = () => {
       });
   }
   if(!courseList){
-    axios.get(`http://localhost:5001/courses`)
+    axios.get(`${import.meta.env.VITE_LINK}/courses`)
       .then((res) => {
         setCourseList(res.data.data)
       })
@@ -211,7 +211,7 @@ const Profile = () => {
       });
   }
   if(!majorList){
-    axios.get(`http://localhost:5001/majorsminors`)
+    axios.get(`${import.meta.env.VITE_LINK}/majorsminors`)
       .then((res) => {
         setMajorList(res.data.data)
       })
