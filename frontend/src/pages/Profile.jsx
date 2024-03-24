@@ -227,6 +227,7 @@ const Profile = () => {
   const termDict = {
     "1": "Fall",
     "2": "Spring",
+    "3": "Other",
   }
   const yearDict = {
     "1": "Freshman",
@@ -263,6 +264,7 @@ const Profile = () => {
                 <option value="" disabled >Select Term</option>
                 <option value="1">Fall</option>
                 <option value="2">Spring</option>
+                <option value="3">Other</option>
               </select>
                 <input className="m-2 p-1" name="courseCode" onChange={handleChange} value={formData.courseCode} type="text" placeholder="01:198:112" />
                 <button className="rounded-md m-2 p-2 bg-gray-300 justify-center hover:scale-110 hover:text-white hover:bg-gray-700" type="submit">Submit</button>

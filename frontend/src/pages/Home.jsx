@@ -221,6 +221,11 @@ const Home = () => {
   
   const terms = ['1', '2'];
   const years = ['1', '2', '3', '4']; 
+  const cores = [['2', 'CCO', 'CCD'],
+                 ['1', 'NS'],
+                 ['2', 'AHo', 'AHp', 'AHq', 'AHr'],
+                 ['3', 'WC', 'WCr', 'WCd'],
+                 ['2', 'QQ', 'QR']]
   return (
     <DndProvider backend={HTML5Backend}>
       <div className="">
@@ -279,7 +284,7 @@ const Home = () => {
                 )}
                 </div>
                 <div className="m-2">
-                  <DroppableSemesterBox term="" year="5" onDropCourse={onDropCourse} />
+                  <DroppableSemesterBox term="3" year="5" onDropCourse={onDropCourse} />
                 </div> 
               </div>
               }
@@ -304,7 +309,7 @@ const Home = () => {
             </div>
             <div className="text-center">
               <div className="flex flex-row justify-around">   
-              {currentMajor?.requiredCourses[1].map((course, index) =>  index>0 && 
+              {currentMajor?.requiredCourses.map((course, index) =>  index>1 && 
               <div key={index} className="flex flex-col ">
                 <div>{course[0]} from this group</div>
                 {course.map((cors, idx) => idx > 0 && (
@@ -313,7 +318,7 @@ const Home = () => {
               </div>
               )}
               </div>
-              </div>
+            </div>
             </div>
             }
           </div>
@@ -326,13 +331,18 @@ const Home = () => {
               Required Tracks
             </div>
             <div className="text-center">
-              <div className="flex flex-row justify-around">   
-              {"SAS CORE".requiredTracks.map((track, index) =>  index>0 && 
+              <div className="flex flex-row justify-around">
+
+              {cores.map((track, index) =>  
+              
               <div key={index} className="flex flex-col ">
+
                 <div>{track[0]} from this group</div>
-                {track.map((cors, idx) => idx > 0 && (
-                  <div key={idx} className={`p-2  ${currentUser?.courses.some(corps => corps[2] === cors) ? "text-green-600" : "text-red-500"}`}>{cors} </div>
-                ))}
+
+                {track.map((requirement, idx) => idx > 0 && (
+                  currentUser?.courses?.map((cors, id) => id && (
+                  <div key={idx} className="p-2">{requirement} </div>
+                ))))}
               </div>
               )}
               </div>
