@@ -5,17 +5,28 @@ import LoginButton from '../components/LoginButton'
 import { useAuth0 } from "@auth0/auth0-react";
 import LogoutButton from '../components/LogoutButton';
 import { Link } from "react-router-dom"
-
+import { HiOutlineX } from "react-icons/hi";
 
 const Profile = () => {
   const { user, isAuthenticated, isLoading } = useAuth0();
   const [ users, setUsers ] = useState([]);
   const [ loading, setLoading ] = useState(false);
-  const [hasPosted, setHasPosted] = useState(false);
-  const [editBox, setEditBox] = useState(false);
+  const [hasPosted, setHasPosted] = useState(sessionStorage.getItem("hasPosted") === "true");
+  const [open, setOpen] = useState(false);
+  const [ currentUser, setCurrentUser ] = useState();
+  const [ courseList, setCourseList ] = useState();
+  const [ majorList, setMajorList ] = useState();
+  const [ errors, setErrors] = useState({})
+  const [ currentUserMajor, setCurrentUserMajor] = useState()
+  const [ formData, setFormData] = useState({
+    courseCode: "",
+    courseTerm: "",
+    courseYear: "",
+  });
+  const [ formDataMajor, setFormDataMajor] = useState({
+    major: "",
+  });
   
-<<<<<<< Updated upstream
-=======
   
   const validateData = () => {
     let errors = {};
@@ -141,7 +152,6 @@ const Profile = () => {
       });
   };
 
->>>>>>> Stashed changes
   useEffect(()=> {
     setLoading(true);
     axios
@@ -167,20 +177,19 @@ const Profile = () => {
             setUsers(currentUsers => [...currentUsers, res.data]);
             setHasPosted(true); 
             console.log(res.data)
+            sessionStorage.setItem("hasPosted", "true");
           })
           .catch((error) => {
             console.log(error);
+            
           });
       } else {
         setHasPosted(true); 
-    }}
+        sessionStorage.setItem("hasPosted", "true");
+      }
+    }
   }, [isLoading, isAuthenticated, user, hasPosted]);
-  
 
-<<<<<<< Updated upstream
-  if (isLoading) {
-    return <div>Loading ...</div>;
-=======
   if(!currentUser && isAuthenticated){
     axios.get(`${import.meta.env.VITE_LINK}/users/${user.email}`)
       .then((res) => {
@@ -225,44 +234,131 @@ const Profile = () => {
     "3": "Junior",
     "4": "Senior",
     "5": "Other",
->>>>>>> Stashed changes
   }
   
   return (
-    <div className="">
-            <nav className="bg-red-100 p-4 flex flex-row justify-center"> 
-              <Link className="text-center w-full font-semibold text-3xl" to="/">
-                <div className="text-center w-full font-semibold text-3xl">RU SCHEDULING</div>
-              </Link>
-                <div className="min-w-fit">
-                {isLoading && <div>Loading</div>}
-                {(!isLoading && !isAuthenticated) ? <LoginButton/> : 
-                    <div className="min-w-fit flex flex-row align-middle min-h-full">
-                        <div className="pl-2"> <LogoutButton/> </div>
-                        
-                    </div>
-                }
-                
-  
-                </div>
-                
-            </nav>
-            
-            
-            <div>
-                    {isAuthenticated && 
-                    <div>
-                      <div className="flex flex-row">
-                        Your Major: {user.major ? user.major : 'No major set'}
-                        <button className="m-1 p-1 bg-gray-100 b-1 rounded-md" onClick={null}>Edit Major</button>
-                      </div>
-                      <div className="flex flex-col">
-                        Your Minor: {user.minor ? user.minor : 'No minor set'}
-                      </div>
-                    </div>
-                      }
-                </div>
+    <div className="bg-blue">
+
+      {open && isAuthenticated &&
+        <div className="absolute min-w-[50%] min-h-[50%] bg-gray-800 p-3 m-5 rounded-lg">
+          <div className="flex flex-row min-w-full justify-start align-middle">
+            <div className="grow text-white text-center align-middle min-h-full font-semibold text-2xl">
+              EDIT PROFILE
+            </div>
+            <HiOutlineX className="h-8 w-8 cursor-pointer stroke-red-900" onClick={() => setOpen(!open)}/>
+          <div/>
+          </div>
+          <div className="text-white text-center">Add Course by COURSE CODE</div>
+          <form onSubmit={handleSubmit}>
+            <div className="">
+              <select name="courseYear" value={formData.courseYear} className="m-2 p-1" onChange={handleChange} >
+                <option value="" disabled >Select Year</option>
+                <option value="1">Freshman</option>
+                <option value="2">Sophomore</option>
+                <option value="3">Junior</option>
+                <option value="4">Senior</option>
+                <option value="5">Other Course with Credit</option>
+              </select>
+              <select name="courseTerm" value={formData.courseTerm} className="m-2 p-1" onChange={handleChange} >
+                <option value="" disabled >Select Term</option>
+                <option value="1">Fall</option>
+                <option value="2">Spring</option>
+              </select>
+                <input className="m-2 p-1" name="courseCode" onChange={handleChange} value={formData.courseCode} type="text" placeholder="01:198:112" />
+                <button className="rounded-md m-2 p-2 bg-gray-300 justify-center hover:scale-110 hover:text-white hover:bg-gray-700" type="submit">Submit</button>
+            </div>
+          </form>
+          <form onSubmit={handleSubmitMajor}>
+            <div className="">
+              <select name="major" value={formData.major} className="m-2 p-1" onChange={handleChangeMajor} >
+                <option value="" disabled selected="selected">{majorList?.find(major => major.programCode === currentUser.major)?.name}</option>
+                {majorList && majorList.map((major, index) => (
+                  <option key={index} value={major.programCode}>{major.name}</option>
+                ))}
+              </select>
+              <button className="rounded-md m-2 p-2 bg-gray-300 justify-center hover:scale-110 hover:text-white hover:bg-gray-700" type="submit">Submit</button>
+            </div>
+          </form>
+          <div className="pt-3 pl-2 text-white text-left ">Remove Course by COURSE CODE</div>
+          <form onSubmit={handleDelete}>
+            <div className="flex flex-row min-w-full justify-left">
+              <input className="m-2 p-2" name="courseCodeDel" onChange={handleChange} value={formData.courseCodeDel} type="text" placeholder="01:198:112" />
+              <button className="rounded-md m-2 p-2 bg-gray-300 justify-center hover:scale-110 hover:text-white hover:bg-gray-700" type="submit">Submit</button>
+            </div>
+          </form>
         </div>
+      }
+
+      <nav className="bg-stone-500 p-4 flex flex-row justify-center "> 
+        <Link className="m-auto" to="/">
+          <div className="text-center w-full font-semibold text-3xl">RU SCHEDULING</div>
+        </Link>
+          <div className="min-w-fit">
+          {isLoading && <div>Loading</div>}
+          {(!isLoading && !isAuthenticated) ? <LoginButton/> : 
+              <div className="min-w-fit flex flex-row align-middle min-h-full">
+                  <div className="pl-2"> <LogoutButton/> </div>
+                  
+              </div>
+          }
+          
+
+          </div>
+          
+      </nav>
+      
+      
+      <div>
+        {isAuthenticated && currentUser &&
+        <div className="h-full min-w-full">
+          <div className="bg-slate-200 rounded-md p-5 m-5 w-fit mx-auto">
+          <div className="flex flex-row justify-center text-lg font-semibold">
+            Your Major 
+          </div>
+          <div className="flex flex-row justify-center">
+            {currentUser.major ? majorList?.find(major => major.programCode === currentUser.major)?.name : 'No major set'}
+          </div>
+          <div className="flex flex-row justify-center text-lg font-semibold">
+            Your Minor 
+          </div>
+          <div className="flex flex-row justify-center">
+            {currentUser.minor ? currentUser.minor : 'No minor set'}
+          </div>
+          <div className="flex flex-row justify-center text-lg font-semibold">
+            Your Courses 
+          </div>
+          <div className="">
+            
+              
+              { currentUser.courses ? 
+                <table>
+                  <tr className="flex flex-row justify-between gap-3 text-center">
+                    <th className="px-5">Year</th>
+                    <th className="px-5">Term</th>
+                    <th className="px-5">Course</th>
+                  </tr>
+                  
+                  {currentUser.courses.map((course, index) => (
+                  <tr key={index} className="flex flex-row justify-between gap-3 text-center">
+                    <td className="text-center">{yearDict[course[1]]}</td>
+                    <td className="text-center">{termDict[course[0]] ? termDict[course[0]] : "Error"}</td>
+                    <td className="text-center">{course[2]}</td>
+                  </tr> ))}
+                  
+                </table>
+                 : (<div>No courses added</div>) 
+                
+              }
+            
+          </div>
+            <div className="flex flex-row w-full justify-center">
+              <button className="border border-black p-1 m-1 bg-gray-200 rounded-sm hover:bg-gray-300 justify-center " onClick={() => setOpen(!open)}>Edit Profile</button>
+            </div>
+          </div>
+        </div>
+          }
+      </div>
+    </div>
   )
 }
 
