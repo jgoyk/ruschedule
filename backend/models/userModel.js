@@ -6,16 +6,12 @@ const userSchema = mongoose.Schema(
             type: String,
             required: true,
         },
-        school: {
+        major: {
             type: String,
             required: false,
         },
-        major: {
-            type: Number,
-            required: false,
-        },
         minor: {
-            type: Number,
+            type: String,
             required: false,
         },
         courses: {

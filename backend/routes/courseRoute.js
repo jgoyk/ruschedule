@@ -31,4 +31,20 @@ router.get('/:id', async (req,res) => {
     }
 })
 
+router.get('/search/:term', async (req,res) => {
+    try {
+        const searchTerm = req.params.term;
+        const regex = new RegExp(searchTerm, 'i');
+        const courses = await Course.find({ title: { $regex: regex } });
+        return res.status(201).json({
+            count: course.length,
+            data: course
+        })
+    } catch(error) {
+        console.log(error.message)
+        res.status(500).send({ message: error.message })
+    }
+})
+
+
 export default router;

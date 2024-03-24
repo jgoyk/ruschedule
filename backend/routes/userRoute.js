@@ -20,11 +20,8 @@ router.get('/', async (req,res) => {
 router.get('/:id', async (req,res) => {
     try {
         const { id } = req.params;
-        const user = await User.findById(id)
-        return res.status(201).json({
-            count: user.length,
-            data: user
-        })
+        const user = await User.find({ username: id })
+        return res.status(201).json(user)
     } catch(error) {
         console.log(error.message)
         res.status(500).send({ message: error.message })
@@ -65,11 +62,12 @@ router.put('/:id', async(req,res) => {
         }
         
         const { id } = req.params;
-        const result = await User.findByIdAndUpdate(id)
+        console.log(req.body)
+        const result = await User.findOneAndUpdate({ username: id }, req.body)
         if (!result){
             return res.status(404).send({ message: "User not found" })
         }
-
+        return res.status(201).json(result)
     } catch (error) {
         console.log(error.message)
         res.status(500).send({ message: error.message })

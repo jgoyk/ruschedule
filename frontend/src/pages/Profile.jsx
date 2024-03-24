@@ -13,9 +13,102 @@ const Profile = () => {
   const [ loading, setLoading ] = useState(false);
   const [hasPosted, setHasPosted] = useState(sessionStorage.getItem("hasPosted") === "true");
   const [open, setOpen] = useState(false);
-
-  const popUp =
+  const [ currentUser, setCurrentUser ] = useState();
+  const [ courseList, setCourseList ] = useState();
+  const [ majorList, setMajorList ] = useState();
+  const [ errors, setErrors] = useState({})
+  const [ currentUserMajor, setCurrentUserMajor] = useState()
+  const [ formData, setFormData] = useState({
+    courseCode: "",
+    courseTerm: "",
+    courseYear: "",
+  });
+  const [ formDataMajor, setFormDataMajor] = useState({
+    major: "",
+  });
   
+  
+  const validateData = () => {
+    let errors = {};
+    const courseExists = courseList.some(course => course.courseString === formData.courseCode);
+    const courseInList = currentUser.courses.some(course => course[1] === formData.courseCode);
+    if (!courseExists) {
+      errors.username = "Course is not in our database";
+      alert("Course is invalid")
+    }
+    if (courseInList) {
+      errors.password = "Course already in your courses";
+      alert("Course is already in account")
+    }
+
+    setFormData((prevState) => ({ ...prevState, errors }));
+    return Object.keys(errors).length === 0;
+  }
+
+  const handleChange = (event) => {
+    const { name, value } = event.target;
+    setFormData((prevState) => ({ ...prevState, [name]: value }));
+  };
+
+  const handleChangeMajor = (event) => {
+    const { name, value } = event.target;
+    setFormDataMajor((prevState) => ({ ...prevState, [name]: value }));
+  };
+  
+
+  
+  const handleSubmit = (event) => {
+    event.preventDefault(); 
+    
+
+    if (!validateData()) {
+      console.log("error")
+      console.log(errors)
+      setErrors({});
+      return; 
+    }
+  
+    setErrors({});
+    const useremail1 = user.email;
+    console.log(formData)
+    setLoading(true)
+    const updatedUser = {
+      username: currentUser.username,
+      major: currentUser.major,
+      minor: currentUser.minor,
+      courses: [...currentUser.courses,[formData.courseTerm, formData.courseYear, formData.courseCode]]
+    }
+    console.log(updatedUser)
+    axios.put(`http://localhost:5001/users/${currentUser.username}`, updatedUser)
+      .then((res) => {
+        setLoading(false)
+        console.log("updated")
+      })
+      .catch((error) => {
+        console.log(error);
+        setLoading(false)
+      });
+    };
+
+  const handleSubmitMajor = (event) => {
+    event.preventDefault(); 
+    const updatedUser = {
+      username: currentUser.username,
+      major: formDataMajor.major,
+      minor: currentUser.minor,
+      courses: currentUser.courses
+    }
+    console.log(updatedUser)
+    axios.put(`http://localhost:5001/users/${currentUser.username}`, updatedUser)
+      .then((res) => {
+        setLoading(false)
+        console.log("updated")
+      })
+      .catch((error) => {
+        console.log(error);
+        setLoading(false)
+      });
+    };
   useEffect(()=> {
     setLoading(true);
     axios
@@ -50,28 +143,107 @@ const Profile = () => {
       } else {
         setHasPosted(true); 
         sessionStorage.setItem("hasPosted", "true");
-    }}
+      }
+    }
   }, [isLoading, isAuthenticated, user, hasPosted]);
-  
 
-  if (isLoading) {
-    return <div>Loading ...</div>;
+  if(!currentUser && isAuthenticated){
+    axios.get(`http://localhost:5001/users/${user.email}`)
+      .then((res) => {
+        setCurrentUser(res.data[0])
+      })
+      .catch((error) => {
+        console.log(error);
+        
+      });
+  }
+  if(!courseList){
+    axios.get(`http://localhost:5001/courses`)
+      .then((res) => {
+        setCourseList(res.data.data)
+      })
+      .catch((error) => {
+        console.log(error);
+        
+      });
+  }
+  if(!majorList){
+    axios.get(`http://localhost:5001/majorsminors`)
+      .then((res) => {
+        setMajorList(res.data.data)
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }
+  
+  if (isLoading){
+    return (<div>Loading ...</div>);
+  }
+  
+  const termDict = {
+    "1": "Fall",
+    "2": "Spring",
+  }
+  const yearDict = {
+    "1": "Freshman",
+    "2": "Sophomore",
+    "3": "Junior",
+    "4": "Senior",
+    "5": "Other",
   }
   
   return (
     <div className="bg-blue">
+
       {open && isAuthenticated &&
-      <div className="absolute min-w-[50%] min-h-[50%] bg-gray-500 p-3 m-5 ">
-        <div className="flex flex-row min-w-full justify-start align-middle">
-          <div className="grow text-center align-middle min-h-full font-semibold text-2xl">
-            EDIT PROFILE
+        <div className="absolute min-w-[50%] min-h-[50%] bg-gray-800 p-3 m-5 rounded-lg">
+          <div className="flex flex-row min-w-full justify-start align-middle">
+            <div className="grow text-white text-center align-middle min-h-full font-semibold text-2xl">
+              EDIT PROFILE
+            </div>
+            <HiOutlineX className="h-8 w-8 cursor-pointer stroke-red-900" onClick={() => setOpen(!open)}/>
+          <div/>
           </div>
-          <HiOutlineX className="h-8 w-8 cursor-pointer stroke-red-900" onClick={() => setOpen(!open)}/>
-        <div/>
+          <div className="text-white text-center ">Add Course by COURSE CODE</div>
+          <form onSubmit={handleSubmit}>
+            <div className="">
+              <select name="courseTerm" value={formData.courseTerm} className="m-2 p-1" onChange={handleChange} >
+                <option value="" disabled >Select Term</option>
+                <option value="1">Fall</option>
+                <option value="2">Spring</option>
+              </select>
+              <select name="courseYear" value={formData.courseYear} className="m-2 p-1" onChange={handleChange} >
+                <option value="" disabled >Select Term</option>
+                <option value="1">Freshman</option>
+                <option value="2">Sophomore</option>
+                <option value="3">Junior</option>
+                <option value="4">Senior</option>
+                <option value="5">Other Course with Credit</option>
+
+              </select>
+                <input className="p-1" name="courseCode" onChange={handleChange} value={formData.courseCode} type="text" placeholder="01:111:198" />
+            </div>
+            <div className="flex flex-row min-w-full justify-center">
+              <button className="rounded-md p-2 bg-gray-300 justify-center hover:scale-110 hover:text-white hover:bg-gray-700" type="submit">Submit</button>
+            </div>
+          </form>
+          <form onSubmit={handleSubmitMajor}>
+            <div className="">
+              <select name="major" value={formData.major} className="m-2 p-1" onChange={handleChangeMajor} >
+                <option value="" disabled >Select Major</option>
+                {majorList && majorList.map((major, index) => (
+                  <option key={index} value={major.programCode}>{major.name}</option>
+                ))}
+              </select>
+            </div>
+            <div className="flex flex-row min-w-full justify-center">
+              <button className="rounded-md p-2 bg-gray-300 justify-center hover:scale-110 hover:text-white hover:bg-gray-700" type="submit">Submit</button>
+            </div>
+          </form>
         </div>
-        <div>Set Major To: </div>
-      </div>
       }
+
       <nav className="bg-stone-500 p-4 flex flex-row justify-center "> 
         <Link className="m-auto" to="/">
           <div className="text-center w-full font-semibold text-3xl">RU SCHEDULING</div>
@@ -92,22 +264,51 @@ const Profile = () => {
       
       
       <div>
-        {isAuthenticated && 
+        {isAuthenticated && currentUser &&
         <div className="h-full min-w-full">
           <div className="bg-slate-200 rounded-md p-5 m-5 w-fit mx-auto">
           <div className="flex flex-row justify-center text-lg font-semibold">
             Your Major 
           </div>
           <div className="flex flex-row justify-center">
-            {user.major ? user.major : 'No major set'}
+            {currentUser.major ? majorList.find(major => major.programCode === currentUser.major)?.name : 'No major set'}
           </div>
           <div className="flex flex-row justify-center text-lg font-semibold">
             Your Minor 
           </div>
           <div className="flex flex-row justify-center">
-            {user.minor ? user.minor : 'No minor set'}
+            {currentUser.minor ? currentUser.minor : 'No minor set'}
           </div>
-          <button className="border border-black p-1 m-1 bg-gray-200 rounded-sm hover:bg-gray-300" onClick={() => setOpen(!open)}>Edit Profile</button>
+          <div className="flex flex-row justify-center text-lg font-semibold">
+            Your Courses 
+          </div>
+          <div className="">
+            
+              
+              { currentUser.courses ? 
+                <table>
+                  <tr className="flex flex-row justify-between gap-3 text-center">
+                    <th className="px-5">Year</th>
+                    <th className="px-5">Term</th>
+                    <th className="px-5">Course</th>
+                  </tr>
+                  
+                  {currentUser.courses.map((course, index) => (
+                  <tr key={index} className="flex flex-row justify-between gap-3 text-center">
+                    <td className="text-center">{yearDict[course[1]]}</td>
+                    <td className="text-center">{termDict[course[0]] ? termDict[course[0]] : "Error"}</td>
+                    <td className="text-center">{course[2]}</td>
+                  </tr> ))}
+                  
+                </table>
+                 : (<div>No courses added</div>) 
+                
+              }
+            
+          </div>
+            <div className="flex flex-row w-full justify-center">
+              <button className="border border-black p-1 m-1 bg-gray-200 rounded-sm hover:bg-gray-300 justify-center " onClick={() => setOpen(!open)}>Edit Profile</button>
+            </div>
           </div>
         </div>
           }

@@ -6,18 +6,6 @@ const majminSchema = mongoose.Schema(
             type: String,
             required: true,
         },
-        programType: {
-            type: Number, //2 = both, 1 = major only, 0 = minor only
-            required: true,
-        },
-        programCode: {
-            type: String,
-            required: true,
-        },
-        school: {
-            type: String,
-            required: true,
-        },
         requiredCourses: {
             type: Array,
             required: false,
@@ -25,10 +13,14 @@ const majminSchema = mongoose.Schema(
         electives: {
             type: Array,
             required: false,
+        },
+        majmin: {
+            type: Number,
+            required: true,
         }
     }, {
         timestamps: true,
     }
 )
 
-export const MajorMinor = mongoose.model('majmin', majminSchema)
+export const MajorMinor = mongoose.model('majorsminors', majminSchema)
