@@ -16,7 +16,7 @@ root.render(
       domain={domain}
       clientId={clientid}
       authorizationParams={{
-        redirect_uri: uri
+        redirect_uri: "https://ruscheduling.com"
       }}
     >
         <App className="oswald-font"/>
