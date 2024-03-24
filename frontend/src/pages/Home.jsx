@@ -313,7 +313,7 @@ const Home = () => {
               <div key={index} className="flex flex-col ">
                 <div>{course[0]} from this group</div>
                 {course.map((cors, idx) => idx > 0 && (
-                  <div key={idx} className={`p-2  ${currentUser?.courses.some(corps => corps[2] === cors) ? "text-green-600" : "text-red-500"}`}>{cors} </div>
+                  <div key={idx} className={`p-2  ${currentUser?.courses.some(corps => corps[2] === cors) ? "text-green-600" : "text-red-500"}`}>{cors}</div>
                 ))}
               </div>
               )}
