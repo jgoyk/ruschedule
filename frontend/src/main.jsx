@@ -9,6 +9,7 @@ import { Auth0Provider } from '@auth0/auth0-react';
 const root = createRoot(document.getElementById('root'));
 const domain = import.meta.env.VITE_DOMAIN
 const clientid = import.meta.env.VITE_CLIENT_ID
+const uri = import.meta.env.VITE_LINK
 
 root.render(
   <BrowserRouter>
@@ -16,7 +17,7 @@ root.render(
       domain={domain}
       clientId={clientid}
       authorizationParams={{
-        redirect_uri: import.meta.env.VITE_LINK
+        redirect_uri: {uri}
       }}
     >
         <App />
