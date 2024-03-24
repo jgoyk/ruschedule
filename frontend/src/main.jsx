@@ -17,7 +17,7 @@ root.render(
       domain={domain}
       clientId={clientid}
       authorizationParams={{
-        redirect_uri: import.meta.env.VITE_LINK,
+        redirect_uri: "https://ruschedule.vercel.app/",
       }}
     >
         <App />
