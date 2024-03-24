@@ -17,7 +17,7 @@ root.render(
       domain={domain}
       clientId={clientid}
       authorizationParams={{
-        redirect_uri: {uri}
+        redirect_uri: uri
       }}
     >
         <App />
