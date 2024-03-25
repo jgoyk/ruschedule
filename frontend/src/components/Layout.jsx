@@ -1,16 +1,12 @@
-import React from 'react';
-import {Routes, Route, Link} from 'react-router-dom'
-import Home from "./pages/Home.jsx";
-import Profile from "./pages/Profile.jsx";
-import Schedule from "./pages/Schedule.jsx";
-import Login from "./pages/Login.jsx";
-import './App.css';
+import React from 'react'
 import { CgProfile } from 'react-icons/cg';
 import { SignedIn, SignedOut, SignInButton, UserButton } from "@clerk/clerk-react";
+import { Link } from 'react-router-dom';
+import './Layout.css';
 
-const App = () => {
+const Layout = ({ children }) => {
   return (
-      <div className="w-full h-screen bg-gray-200">
+    <div className="h-screen w-screen bg-gray-200 oz-font">
         <nav className="bg-stone-500 p-4 flex flex-row justify-end">
           <div className="grow min-h-full flex flex-col my-auto h-full">
             <Link to="/" className="justify-center text-center w-full font-semibold text-3xl">
@@ -38,14 +34,9 @@ const App = () => {
               </div>
             </div>
         </nav>
-      <Routes>
-        <Route path='/' element={<Home/>}/>
-        <Route path='/schedule' element={<Schedule/>}/>
-        <Route path='/profile' element={<Profile/>}/>
-        <Route path='/login' element={<Login/>}/>
-      </Routes>
-      </div>
+        {children}
+    </div>
   )
 }
 
-export default App
+export default Layout

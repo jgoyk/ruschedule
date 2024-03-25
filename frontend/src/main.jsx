@@ -1,22 +1,24 @@
 import React from 'react'
-import App from './App.jsx'
 import './index.css'
-import {BrowserRouter} from 'react-router-dom'
-import ReactDOM, { createRoot } from 'react-dom/client';
-import { Auth0Provider } from '@auth0/auth0-react';
+import { createRoot } from 'react-dom/client';
 import { ClerkProvider } from '@clerk/clerk-react'
- 
+import {
+  createBrowserRouter,
+  RouterProvider,
+} from "react-router-dom";
+import Home from "./pages/Home.jsx";
+import Profile from "./pages/Profile.jsx";
+
+const router = createBrowserRouter([
+  { path: "*", Component: Home },
+  { path: "/profile", Component: Profile },
+]);
 
 const root = createRoot(document.getElementById('root'));
-const domain = import.meta.env.VITE_DOMAIN
-const clientid = import.meta.env.VITE_CLIENT_ID
-const uri = import.meta.env.VITE_URI
 const PUBLISHABLE_KEY = import.meta.env.VITE_CLERK_PUBLISHABLE_KEY
 
 root.render(
-  <BrowserRouter>
     <ClerkProvider publishableKey={PUBLISHABLE_KEY}>
-        <App className="oswald-font"/>
+      <RouterProvider router={router} />;
     </ClerkProvider>
-  </BrowserRouter>,
 );

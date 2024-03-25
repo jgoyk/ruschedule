@@ -6,7 +6,7 @@ import { HTML5Backend } from 'react-dnd-html5-backend';
 import { HiArrowRight,  HiArrowLeft } from "react-icons/hi";
 import { useClerk } from "@clerk/clerk-react";
 import { useUser } from '@clerk/clerk-react';
-
+import Layout from '../components/Layout';
 
 
 
@@ -192,7 +192,6 @@ const Home = () => {
   if (!currentMajor){
     axios.get(`${import.meta.env.VITE_LINK}/majorsminors/${currentUser?.major}`)
     .then((res) => {
-      console.log(res.data[0])
       setCurrentMajor(res.data[0])
     })
     .catch((error) => {
@@ -235,6 +234,7 @@ const Home = () => {
 
   return (
     <DndProvider backend={HTML5Backend}>
+      <Layout>
       <div className="h-screen w-full flex flex-col">
         
 
@@ -338,6 +338,7 @@ const Home = () => {
           </div>
         </div> 
       </div> 
+      </Layout>
     </DndProvider>
   );
 };
