@@ -241,7 +241,7 @@ const Profile = () => {
     <div className="bg-blue">
 
       {open && isAuthenticated &&
-        <div className="absolute min-w-[50%] min-h-[50%] bg-gray-800 p-3 m-5 rounded-lg">
+        <div className="absolute min-w-[50%] min-h-[50%] bg-gray-800 p-3 rounded-lg">
           <div className="flex flex-row min-w-full justify-start align-middle">
             <div className="grow text-white text-center align-middle min-h-full font-semibold text-2xl">
               EDIT PROFILE
