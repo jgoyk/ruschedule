@@ -6,7 +6,6 @@ const router = express.Router()
 router.get('/', async (req,res) => {
     try {
         const majmins = await MajorMinor.find({})
-        console.log(majmins)
         return res.status(201).json({
             count: majmins.length,
             data: majmins

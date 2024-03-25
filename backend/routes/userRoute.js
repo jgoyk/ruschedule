@@ -62,7 +62,6 @@ router.put('/:id', async(req,res) => {
         }
         
         const { id } = req.params;
-        console.log(req.body)
         const result = await User.findOneAndUpdate({ username: id }, req.body)
         if (!result){
             return res.status(404).send({ message: "User not found" })

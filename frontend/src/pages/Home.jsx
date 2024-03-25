@@ -1,21 +1,16 @@
 import React, { useState, useEffect, useMemo, useCallback } from "react";
 import axios from "axios";
 import Spinner from "../components/Spinner";
-import LoginButton from "../components/LoginButton";
-import { useAuth0 } from "@auth0/auth0-react";
-import LogoutButton from "../components/LogoutButton";
-import { Link } from "react-router-dom";
-import { CgProfile } from "react-icons/cg";
 import { DndProvider, useDrag, useDrop } from 'react-dnd';
 import { HTML5Backend } from 'react-dnd-html5-backend';
 import { HiArrowRight,  HiArrowLeft } from "react-icons/hi";
-
+import { useClerk } from "@clerk/clerk-react";
+import { useUser } from '@clerk/clerk-react';
 
 
 
 
 const Home = () => {
-  const { isAuthenticated, isLoading, user } = useAuth0();
   const [users, setUsers] = useState([]);
   const [courseList, setCourseList] = useState([]);
   const [loading, setLoading] = useState(false);
@@ -26,7 +21,8 @@ const Home = () => {
   const [currentMajor, setCurrentMajor] = useState();
   const [box, setBox] = useState(false);
   const [count, setCount] = useState(1)
- 
+  const { user } = useUser();
+
   const rightHandleClick = () => {
     setCount(currentCount => currentCount + 1); 
   };
@@ -162,8 +158,8 @@ const Home = () => {
     setBox(e.target.checked); 
   })
   
-  if(!currentUser && isAuthenticated){
-    axios.get(`${import.meta.env.VITE_LINK}/users/${user.email}`)
+  if(!currentUser && user){
+    axios.get(`${import.meta.env.VITE_LINK}/users/${user.primaryEmailAddress.emailAddress}`)
       .then((res) => {
         setCurrentUser(res.data[0])
       })
@@ -240,36 +236,12 @@ const Home = () => {
   return (
     <DndProvider backend={HTML5Backend}>
       <div className="h-screen w-full flex flex-col">
-        <nav className="bg-stone-500 p-4 flex flex-row justify-end">
-          <div className="grow min-h-full flex flex-col my-auto h-full">
-            <div className="justify-center text-center w-full font-semibold text-3xl">
-              R U SCHEDULING?
-            </div>
-          </div>
-          <div className="min-w-fit flex flex-row justify-end h-10">
-            {!isLoading && 
-            (!isAuthenticated ? (
-              <LoginButton />
-            ) : (
-              <div className="min-w-fit flex flex-row align-middle min-h-full">
-                <div className="p-2 min-w-fit flex flex-row bg-stone-600 text-white rounded-full hover:bg-stone-200 hover:text-black border-2 shadow-lg border-black/50 hover:border-black">
-                  <Link to="/profile" className="flex flex-row min-h-full min-w-fit align-middle items-center">
-                    <CgProfile className="min-h-full h-6 w-6 " />
-                    <div className="p-1">Profile</div>
-                  </Link>
-                </div>
-                <div className="pl-2">
-                  <LogoutButton />
-                </div>
-              </div>
-            ))}
-          </div>
-        </nav>
+        
 
-      {!isLoading ? 
+     
         <div className="flex flex-row justify-end bg-gray-200 grow">
           <div className="grow justify-center">
-            { isAuthenticated && 
+            { user && 
               <div>
                 <div className="grid grid-cols-4 grid-rows-2 border m-2 h-full">
                 {years.map(year =>
@@ -289,7 +261,7 @@ const Home = () => {
               </div>
               }
           <div>
-            { isAuthenticated ?
+            { user ?
             (<div> 
               <div className="pt-5 text-center font-semibold text-xl" >
                 Major Requirement Tracker
@@ -327,7 +299,7 @@ const Home = () => {
             </div>
             }
           </div>
-          {isAuthenticated && 
+          { user && 
           <div>
             <div className="pt-5 text-center font-semibold text-xl" >
               SAS CORE Requirements
@@ -364,7 +336,7 @@ const Home = () => {
             </div>
           </div>
           </div>
-        </div> : <div className="flex justify-center items-center h-full bg-gray-200"><Spinner/></div>}
+        </div> 
       </div> 
     </DndProvider>
   );

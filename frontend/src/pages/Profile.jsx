@@ -1,14 +1,10 @@
 import React, {useState, useEffect}  from 'react'
 import axios from "axios";
-import Spinner from "../components/Spinner"
-import LoginButton from '../components/LoginButton'
-import { useAuth0 } from "@auth0/auth0-react";
-import LogoutButton from '../components/LogoutButton';
-import { Link } from "react-router-dom"
 import { HiOutlineX } from "react-icons/hi";
+import { useUser } from '@clerk/clerk-react';
+import { useClerk } from "@clerk/clerk-react";
 
 const Profile = () => {
-  const { user, isAuthenticated, isLoading, loginWithRedirect } = useAuth0();
   const [ users, setUsers ] = useState([]);
   const [ loading, setLoading ] = useState(false);
   const [hasPosted, setHasPosted] = useState(sessionStorage.getItem("hasPosted") === "true");
@@ -27,11 +23,15 @@ const Profile = () => {
     major: "",
   });
   
-  useEffect(() => {
-    if (!isAuthenticated) {
-      loginWithRedirect();
-    }
-  }, [isAuthenticated, loginWithRedirect]);
+  const { user } = useUser();
+  const clerk = useClerk();
+
+
+  // useEffect(() => {
+  //   if (!user) {
+  //     openSignIn();
+  //   }
+  // }, [user]);
 
   
   const validateData = () => {
@@ -131,8 +131,6 @@ const Profile = () => {
 
   const handleDelete = (event) => {
     event.preventDefault(); 
-    
-    const useremail1 = user.email;
     console.log(formData)
     setLoading(true)
     const updatedUser = {
@@ -172,8 +170,8 @@ const Profile = () => {
   }, [])
 
   useEffect(() => {
-    if (!isLoading && isAuthenticated && !hasPosted && !loading) {
-      const useremail = user.email;
+    if (user && !hasPosted && !loading) {
+      const useremail = user.primaryEmailAddress.emailAddress;
       const emailExists = users.some(user => user.username === useremail);
       
       if (!emailExists) {
@@ -193,10 +191,10 @@ const Profile = () => {
         sessionStorage.setItem("hasPosted", "true");
       }
     }
-  }, [isLoading, isAuthenticated, user, hasPosted]);
+  }, [ user, hasPosted]);
 
-  if(!currentUser && isAuthenticated){
-    axios.get(`${import.meta.env.VITE_LINK}/users/${user.email}`)
+  if(!currentUser && user){
+    axios.get(`${import.meta.env.VITE_LINK}/users/${user.primaryEmailAddress.emailAddress}`)
       .then((res) => {
         setCurrentUser(res.data[0])
       })
@@ -225,10 +223,6 @@ const Profile = () => {
       });
   }
   
-  if (isLoading){
-    return (<div>Loading ...</div>);
-  }
-  
   const termDict = {
     "1": "Fall",
     "2": "Spring",
@@ -243,9 +237,9 @@ const Profile = () => {
   }
   
   return (
-    <div className="bg-blue">
+    <div className="min-h-full min-w-full bg-gray-200">
 
-      {open && isAuthenticated &&
+      {open && user &&
       <div className="bg-black opacity-1/2">
         <div className="fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-gray-800 p-3 rounded-lg">
           <div className="flex flex-row min-w-full justify-start align-middle">
@@ -297,30 +291,12 @@ const Profile = () => {
         </div>
         </div>
       }
-
-      <nav className="bg-stone-500 p-4 flex flex-row justify-center "> 
-        <Link className="m-auto" to="/">
-          <div className="text-center w-full font-semibold text-3xl">RU SCHEDULING</div>
-        </Link>
-          <div className="min-w-fit">
-          {isLoading && <div>Loading</div>}
-          {(!isLoading && !isAuthenticated) ? <LoginButton/> : 
-              <div className="min-w-fit flex flex-row align-middle min-h-full">
-                  <div className="pl-2"> <LogoutButton/> </div>
-                  
-              </div>
-          }
-          
-
-          </div>
-          
-      </nav>
       
       
-      <div>
-        {isAuthenticated && currentUser &&
+      <div className="min-h-full min-w-full">
+        { currentUser &&
         <div className="h-full min-w-full">
-          <div className="bg-slate-200 rounded-md p-5 m-5 w-fit mx-auto">
+          <div className="bg-slate-300 rounded-md p-5 m-5 w-fit mx-auto">
           <div className="flex flex-row justify-center text-lg font-semibold">
             Your Major 
           </div>
@@ -341,22 +317,28 @@ const Profile = () => {
               
               { currentUser.courses ? 
                 <table>
-                  <col width="20px" />
-                  <col width="30px" />
-                  <col width="40px" />
+                  <colgroup>
+                    <col width="20px" />
+                    <col width="30px" />
+                    <col width="40px" />
+                  </colgroup>
+                  <tbody>
+                  
                   <tr className="text-center">
                     <th className="px-5">Year</th>
                     <th className="px-5">Term</th>
                     <th className="px-5">Course</th>
                   </tr>
                   
-                  {currentUser.courses.map((course, index) => (
-                  <tr key={index} className="text-center ">
-                    
-                    <td className="text-center">{yearDict[course[1]]}</td>
-                    <td className="text-center">{termDict[course[0]] ? termDict[course[0]] : "Error"}</td>
-                    <td className="text-center overflow-hidden">{course[2].title}</td>
-                  </tr> ))}
+
+                    {currentUser.courses.map((course, index) => (
+                    <tr key={index} className="text-center ">
+                      
+                      <td className="text-center">{yearDict[course[1]]}</td>
+                      <td className="text-center">{termDict[course[0]] ? termDict[course[0]] : "Error"}</td>
+                      <td className="text-center overflow-hidden">{course[2].title}</td>
+                    </tr> ))}
+                  </tbody>
                   
                 </table>
                  : (<div>No courses added</div>) 
