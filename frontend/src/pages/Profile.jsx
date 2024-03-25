@@ -86,14 +86,13 @@ const Profile = () => {
     }
   
     setErrors({});
-    const useremail1 = user.email;
     console.log(formData)
     setLoading(true)
     const updatedUser = {
       username: currentUser.username,
       major: currentUser.major,
       minor: currentUser.minor,
-      courses: [...currentUser.courses,[formData.courseTerm, formData.courseYear, formData.courseCode]]
+      courses: [...currentUser.courses,[formData.courseTerm, formData.courseYear, courseList.find(cors => cors.courseString === formData.courseCode)]]
     }
     formData.courseCode = ""
     setCurrentUser(updatedUser)

@@ -17,7 +17,7 @@ import { HTML5Backend } from 'react-dnd-html5-backend';
 const Home = () => {
   const { isAuthenticated, isLoading, user } = useAuth0();
   const [users, setUsers] = useState([]);
-  const [courses, setCourses] = useState([]);
+  const [courseList, setCourseList] = useState([]);
   const [loading, setLoading] = useState(false);
   const [searchInput, setSearchInput] = useState("");
   const [searchResults, setSearchResults] = useState([]);
@@ -31,31 +31,35 @@ const Home = () => {
     
     console.log(`Dropped course ${courseId} into ${year} year and ${term}`);
     const courseInList = currentUser.courses.some(course => course[2] === courseId);
-    if(!courseInList){ const updatedUser = {
-      username: currentUser.username,
-      major: currentUser.major,
-      minor: currentUser.minor,
-      courses: [...currentUser.courses,[term, year, courseId]]
-    }
-    setCurrentUser(updatedUser)
-    axios.put(`${import.meta.env.VITE_LINK}/users/${currentUser.username}`, updatedUser)
-      .then((res) => {
-        setLoading(false)
-        console.log("updated")
-      })
-      .catch((error) => {
-        console.log(error);
-        setLoading(false)
-      });} else{
+    if(!courseInList){ 
+      const updatedUser = {
+        username: currentUser.username,
+        major: currentUser.major,
+        minor: currentUser.minor,
+        courses: [...currentUser.courses,[term, year, courseId]]
+      }
+      setCurrentUser(updatedUser)
+      axios.put(`${import.meta.env.VITE_LINK}/users/${currentUser.username}`, updatedUser)
+        .then((res) => {
+          setLoading(false)
+          console.log("updated")
+        })
+        .catch((error) => {
+          console.log(error);
+          setLoading(false)
+        });
+    } else{
         alert("Course already in schedule")
       }
   };
   const onRemoveCourse = (course) => {
+    console.log(course)
+    console.log(currentUser.courses)
     const updatedUser = {
       username: currentUser.username,
       major: currentUser.major,
       minor: currentUser.minor,
-      courses: currentUser.courses.filter(cor => (cor[2] != course.id))
+      courses: currentUser.courses.filter(cor => (cor[2].courseString !== course.id[2].courseString))
     }
     setCurrentUser(updatedUser)
       axios.put(`${import.meta.env.VITE_LINK}/users/${currentUser.username}`, updatedUser)
@@ -69,7 +73,7 @@ const Home = () => {
       });
   }
   useEffect(() => {
-    if (courses.length === 0){
+    if (courseList.length === 0){
     const fetchData = async () => {
       setLoading(true);
       try {
@@ -78,7 +82,7 @@ const Home = () => {
         setUsers(usersResponse.data.data)
         const coursesResponse = await axios.get(`${import.meta.env.VITE_LINK}/courses`);
         console.log(coursesResponse.data)
-        setCourses(coursesResponse.data.data);
+        setCourseList(coursesResponse.data.data);
       } catch (error) {
         console.log(error);
       } finally {
@@ -104,7 +108,7 @@ const Home = () => {
   const DraggableCourseItem = ({ course, index }) => {
     const [{ isDragging }, drag] = useDrag(() => ({
       type: 'course',
-      item: { id: course.courseString, index },
+      item: { id: course, index },
       collect: (monitor) => ({
         isDragging: !!monitor.isDragging(),
       }),
@@ -121,13 +125,13 @@ const Home = () => {
   const DraggableCourseInYear = ({ course, index }) => {
     const [{ isDragging }, drag] = useDrag(() => ({
       type: 'course',
-      item: { id: course[2], index },
+      item: { id: course, index },
       collect: (monitor) => ({
         isDragging: !!monitor.isDragging(),
       }),
     }));
     return (
-      <div ref={drag} style={{ opacity: isDragging ? 0.5 : 1 }} key={index} className="text-center">{courses?.find(cor => cor.courseString === course[2])?.title}</div>
+      <div ref={drag} style={{ opacity: isDragging ? 0.5 : 1 }} key={index} className="text-center">{course[2]?.title}</div>
     );
   };
 
@@ -136,11 +140,11 @@ const Home = () => {
   const filteredCourses = useMemo(() => {
     if (searchInput.length > 0) {
       return box
-        ? courses.filter(course => course.courseString.includes(searchInput))
-        : courses.filter(course => course.title.toLowerCase().includes(searchInput.toLowerCase()));
+        ? courseList.filter(course => course.courseString.includes(searchInput))
+        : courseList.filter(course => course.title.toLowerCase().includes(searchInput.toLowerCase()));
     }
-    return courses;
-  }, [searchInput, box, courses]);
+    return courseList;
+  }, [searchInput, box, courseList]);
   
 
   const handleChange = useCallback((e) => {
@@ -229,7 +233,6 @@ const Home = () => {
 
 
 
-
   return (
     <DndProvider backend={HTML5Backend}>
       <div className="">
@@ -309,7 +312,7 @@ const Home = () => {
             </div>
             <div className="flex flex-row justify-center">
               {currentMajor?.requiredCourses[0].map((course, index) =>  (
-                <div key={index} className={`p-2  ${currentUser?.courses.some(cors => cors[2] === course) ? "text-green-600" : "text-red-500"}`}>{course}</div>
+                <div key={index} className={`p-2  ${currentUser?.courses.some(cors => cors[2].courseString === course) ? "text-green-600" : "text-red-500"}`}>{course}</div>
               ))}
             </div>
             <div className="text-center font-semibold text-lg pb-2">
@@ -321,7 +324,8 @@ const Home = () => {
               <div key={index} className="flex flex-col ">
                 <div>{course[0]} from this group</div>
                 {course.map((cors, idx) => idx > 0 && (
-                  <div key={idx} className={`p-2  ${currentUser?.courses.some(corps => corps[2] === cors) ? "text-green-600" : "text-red-500"}`}>{cors}</div>
+                  
+                  <div key={idx} className={`p-2  ${currentUser?.courses.some(corps => corps[2].courseString === cors) ? "text-green-600" : "text-red-500"}`}>{cors}</div>
                 ))}
               </div>
               )}
@@ -342,7 +346,7 @@ const Home = () => {
               <div className="flex flex-row justify-around">
 
               {cores.map((track, index) =>  track.map((coreCode, idx) => idx>0 &&
-              <div className={currentUser?.courses.some(course => course?.coreCodes?.some(code ===coreCode)) ? "text-green-600" : "text-red-600"}>{coreCode}</div>)
+              <div key={idx} className={currentUser?.courses.some(course => course[2]?.coreCodes.some(code => code === coreCode)) ? "text-green-600" : "text-red-600"}>{coreCode}</div>)
               )}
 
 
