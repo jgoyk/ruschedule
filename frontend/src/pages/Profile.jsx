@@ -8,7 +8,7 @@ import { Link } from "react-router-dom"
 import { HiOutlineX } from "react-icons/hi";
 
 const Profile = () => {
-  const { user, isAuthenticated, isLoading } = useAuth0();
+  const { user, isAuthenticated, isLoading, loginWithRedirect } = useAuth0();
   const [ users, setUsers ] = useState([]);
   const [ loading, setLoading ] = useState(false);
   const [hasPosted, setHasPosted] = useState(sessionStorage.getItem("hasPosted") === "true");
@@ -27,6 +27,12 @@ const Profile = () => {
     major: "",
   });
   
+  useEffect(() => {
+    if (!isAuthenticated) {
+      loginWithRedirect();
+    }
+  }, [isAuthenticated, loginWithRedirect]);
+
   
   const validateData = () => {
     let errors = {};

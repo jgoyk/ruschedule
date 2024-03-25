@@ -225,7 +225,11 @@ const Home = () => {
                  ['1', 'NS'],
                  ['2', 'AHo', 'AHp', 'AHq', 'AHr'],
                  ['3', 'WC', 'WCr', 'WCd'],
-                 ['2', 'QQ', 'QR']]
+                 ['2', 'QQ', 'QR']];
+
+
+
+
   return (
     <DndProvider backend={HTML5Backend}>
       <div className="">
@@ -289,12 +293,16 @@ const Home = () => {
               </div>
               }
           <div>
-            <div className="pt-5 text-center font-semibold text-xl" >
-              Major Requirement Tracker
-            </div>
-            <div className="text-center">
-              Major: {currentMajor?.name}
-            </div>
+            { isAuthenticated ?
+            (<div> 
+              <div className="pt-5 text-center font-semibold text-xl" >
+                Major Requirement Tracker
+              </div>
+              <div className="text-center">
+                Major: {currentMajor?.name}
+              </div>
+            </div> ) : (<div className="text-center p-2 text-xl font-semibold">Please log in to see your schedule</div>)
+            }
             {currentMajor?.requiredCourses.length >0 && <div> 
             <div className="text-center pt-5 font-semibold text-lg ">
               Required Courses
@@ -323,7 +331,7 @@ const Home = () => {
             }
           </div>
 
-          {/* <div>
+          <div>
             <div className="pt-5 text-center font-semibold text-xl" >
               SAS CORE Requirements
             </div>
@@ -333,7 +341,12 @@ const Home = () => {
             <div className="text-center">
               <div className="flex flex-row justify-around">
 
-              {cores.map((track, index) =>  
+              {cores.map((track, index) =>  track.map((coreCode, idx) => idx>0 &&
+              <div className={currentUser?.courses.some(course => course?.coreCodes?.some(code ===coreCode)) ? "text-green-600" : "text-red-600"}>{coreCode}</div>)
+              )}
+
+
+              {/* {cores.map((track, index) =>  
               
               <div key={index} className="flex flex-col ">
 
@@ -344,10 +357,10 @@ const Home = () => {
                   <div key={idx} className="p-2">{requirement} </div>
                 ))))}
               </div>
-              )}
+              )} */}
               </div>
             </div>
-          </div> */}
+          </div>
                 
           </div>
           
