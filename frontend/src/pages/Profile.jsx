@@ -246,7 +246,8 @@ const Profile = () => {
     <div className="bg-blue">
 
       {open && isAuthenticated &&
-        <div className="absolute min-w-[50%] min-h-[50%] bg-gray-800 p-3 rounded-lg">
+      <div className="bg-black opacity-1/2">
+        <div className="fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-gray-800 p-3 rounded-lg">
           <div className="flex flex-row min-w-full justify-start align-middle">
             <div className="grow text-white text-center align-middle min-h-full font-semibold text-2xl">
               EDIT PROFILE
@@ -294,6 +295,7 @@ const Profile = () => {
             </div>
           </form>
         </div>
+        </div>
       }
 
       <nav className="bg-stone-500 p-4 flex flex-row justify-center "> 
@@ -339,17 +341,21 @@ const Profile = () => {
               
               { currentUser.courses ? 
                 <table>
-                  <tr className="flex flex-row justify-between gap-3 text-center">
+                  <col width="20px" />
+                  <col width="30px" />
+                  <col width="40px" />
+                  <tr className="text-center">
                     <th className="px-5">Year</th>
                     <th className="px-5">Term</th>
                     <th className="px-5">Course</th>
                   </tr>
                   
                   {currentUser.courses.map((course, index) => (
-                  <tr key={index} className="flex flex-row justify-between gap-3 text-center">
+                  <tr key={index} className="text-center ">
+                    
                     <td className="text-center">{yearDict[course[1]]}</td>
                     <td className="text-center">{termDict[course[0]] ? termDict[course[0]] : "Error"}</td>
-                    <td className="text-center">{course[2]}</td>
+                    <td className="text-center overflow-hidden">{course[2].title}</td>
                   </tr> ))}
                   
                 </table>

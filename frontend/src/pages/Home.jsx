@@ -159,7 +159,6 @@ const Home = () => {
   }, []);
 
   const handleBoxChange = useCallback((e) => {
-    e.preventDefault();
     setBox(e.target.checked); 
   })
   
@@ -247,15 +246,15 @@ const Home = () => {
               R U SCHEDULING?
             </div>
           </div>
-          <div className="min-w-fit flex flex-row justify-end">
-            {isLoading ? (<div>Loading</div> ) :
+          <div className="min-w-fit flex flex-row justify-end h-10">
+            {!isLoading && 
             (!isAuthenticated ? (
               <LoginButton />
             ) : (
               <div className="min-w-fit flex flex-row align-middle min-h-full">
                 <div className="p-2 min-w-fit flex flex-row bg-stone-600 text-white rounded-full hover:bg-stone-200 hover:text-black border-2 shadow-lg border-black/50 hover:border-black">
-                  <Link to="/profile" className="flex flex-row min-h-full min-w-fit align-middle ">
-                    <CgProfile className="align-middle min-h-full h-6 w-6 " />
+                  <Link to="/profile" className="flex flex-row min-h-full min-w-fit align-middle items-center">
+                    <CgProfile className="min-h-full h-6 w-6 " />
                     <div className="p-1">Profile</div>
                   </Link>
                 </div>
@@ -267,7 +266,7 @@ const Home = () => {
           </div>
         </nav>
 
-
+      {!isLoading ? 
         <div className="flex flex-row justify-end bg-gray-200 grow">
           <div className="grow justify-center">
             { isAuthenticated && 
@@ -353,20 +352,20 @@ const Home = () => {
               <div className="px-2 pt-2 font-bold text-xl flex flex-row justify-center">Search for Course</div>
               <div className="font-semibold text-md flex flex-row justify-center">Drag Classes into Schedule</div>
               <div className="flex flex-col justify-center">
-                <div className="align middle justify-center flex flex-row">Search By Code?
+                <div className="align middle justify-center flex flex-row select-none">Search By Code?
                 <input className="ml-2" type="checkbox" id="scales" name="code" onChange={handleBoxChange}/></div>
                 <input className="p-1 m-1 border " type="text" placeholder="Search here" onChange={handleChange} value={searchInput} />
               </div>
-              <div className="italic flex flex-row justify-center">Showing 20 results</div>
+              <div className="italic flex flex-row justify-center select-none">Showing 20 results</div>
             <div className="justify-center">
               <DroppableList onDropCourse={onRemoveCourse}/>
               <div className="flex flex-row justify-center gap-4">{count >1 && <HiArrowLeft className="h-12 w-12 hover:scale-110 hover:text-gray-700" onClick={leftHandleClick}/>}<HiArrowRight className="h-12 w-12 hover:scale-110 hover:text-gray-700" onClick={rightHandleClick}/></div>
-              <div className="text-sm text-center">Page {count} of {Math.ceil(filteredCourses.length/20)} </div>
+              <div className="text-sm text-center select-none">Page {count} of {Math.ceil(filteredCourses.length/20)} </div>
             </div>
           </div>
           </div>
-        </div>
-      </div>
+        </div> : <div className="flex justify-center items-center h-full bg-gray-200"><Spinner/></div>}
+      </div> 
     </DndProvider>
   );
 };
