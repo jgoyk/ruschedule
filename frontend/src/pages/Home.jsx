@@ -8,7 +8,7 @@ import { Link } from "react-router-dom";
 import { CgProfile } from "react-icons/cg";
 import { DndProvider, useDrag, useDrop } from 'react-dnd';
 import { HTML5Backend } from 'react-dnd-html5-backend';
-
+import { HiArrowRight,  HiArrowLeft } from "react-icons/hi";
 
 
 
@@ -25,7 +25,14 @@ const Home = () => {
   const [courseInList, setCourseInList] = useState();
   const [currentMajor, setCurrentMajor] = useState();
   const [box, setBox] = useState(false);
-
+  const [count, setCount] = useState(1)
+ 
+  const rightHandleClick = () => {
+    setCount(currentCount => currentCount + 1); 
+  };
+  const leftHandleClick = () => {
+    setCount(currentCount => currentCount - 1); 
+  };
 
   const onDropCourse = (courseId, year, term) => {
     
@@ -64,12 +71,10 @@ const Home = () => {
     setCurrentUser(updatedUser)
       axios.put(`${import.meta.env.VITE_LINK}/users/${currentUser.username}`, updatedUser)
       .then((res) => {
-        setLoading(false)
         console.log("deleted")
       })
       .catch((error) => {
         console.log(error);
-        setLoading(false)
       });
   }
   useEffect(() => {
@@ -139,6 +144,7 @@ const Home = () => {
   
   const filteredCourses = useMemo(() => {
     if (searchInput.length > 0) {
+      setCount(1)
       return box
         ? courseList.filter(course => course.courseString.includes(searchInput))
         : courseList.filter(course => course.title.toLowerCase().includes(searchInput.toLowerCase()));
@@ -177,12 +183,13 @@ const Home = () => {
     }));
   
     return (
-      <div ref={drop} style={{ border: '2px solid black', opacity: isOver ? 0.5 : 1 }}>
-        <div className="font-semibold text-center">{yearDict[year]} {termDict[term]}</div>
-        
-        {currentUser && currentUser.courses && currentUser.courses.filter(course => (course[0]=== term) && (course[1]=== year))?.map((course, index) => (
-          <DraggableCourseInYear key={index} course={course} index={index}/>
-        ))}
+      <div ref={drop} className="h-full justify-center" style={{ border: '2px solid black', opacity: isOver ? 0.5 : 1 }}>
+        <div className="font-semibold text-center bg-gray-300 py-2 border-b-2 border-black">{yearDict[year]} {termDict[term]}</div>
+        <div className="min-h-12">
+          {currentUser && currentUser.courses && currentUser.courses.filter(course => (course[0]=== term) && (course[1]=== year))?.map((course, index) => (
+            <DraggableCourseInYear key={index} course={course} index={index}/>
+          ))}
+        </div>
       </div>
     );
   };
@@ -208,14 +215,12 @@ const Home = () => {
     }),
   }));
     return (
-      <div className="bg-gray-200 min-h-[100%] h-full" ref={drop} style={{ opacity: isOver ? 0.5 : 1 }}>
-        <div className="flex flex-col min-h-full grow">
+      <div className="min-h-full h-full" ref={drop} style={{ opacity: isOver ? 0.5 : 1 }}>
+        <div key={searchInput} className="min-h-full min-h-full w-full justify-center bg-gray-200 rounded-lg p-2">
           
-          <div key={searchInput}>
-          {filteredCourses?.filter((course, idx) => idx < 20).map((course, index) => (
+          {filteredCourses?.filter((course, idx) => (idx < 20*count) && (idx > 20*(count-1))).map((course, index) => (
             <DraggableCourseItem key={index} course={course} index={index} />
           ))}
-          </div>
         </div>
       </div>
     );
@@ -235,9 +240,9 @@ const Home = () => {
 
   return (
     <DndProvider backend={HTML5Backend}>
-      <div className="">
-        <nav className="bg-stone-500 p-4 flex flex-row justify-end min-h-full">
-          <div className="grow min-h-full flex flex-col my-auto">
+      <div className="h-screen w-full flex flex-col">
+        <nav className="bg-stone-500 p-4 flex flex-row justify-end">
+          <div className="grow min-h-full flex flex-col my-auto h-full">
             <div className="justify-center text-center w-full font-semibold text-3xl">
               R U SCHEDULING?
             </div>
@@ -261,24 +266,13 @@ const Home = () => {
             ))}
           </div>
         </nav>
-        <div className="flex flex-row justify-end">
+
+
+        <div className="flex flex-row justify-end bg-gray-200 grow">
           <div className="grow justify-center">
-            {/* {loading ? (
-              <Spinner />
-            ) : (
+            { isAuthenticated && 
               <div>
-                <div>
-                  {users?.map((user, index) => (
-                    <div key={user._id}>{user.username}</div>
-                  ))}
-                </div>
-                <div>
-              </div>
-            </div>
-            )} */}
-            {isAuthenticated && 
-              <div>
-                <div className="grid grid-cols-4 grid-rows-2 border m-2">
+                <div className="grid grid-cols-4 grid-rows-2 border m-2 h-full">
                 {years.map(year =>
                   terms.map(term => (
                     <DroppableSemesterBox
@@ -306,7 +300,7 @@ const Home = () => {
               </div>
             </div> ) : (<div className="text-center p-2 text-xl font-semibold">Please log in to see your schedule</div>)
             }
-            {currentMajor?.requiredCourses.length >0 && <div> 
+            {currentMajor?.requiredCourses.length > 0 && <div> 
             <div className="text-center pt-5 font-semibold text-lg ">
               Required Courses
             </div>
@@ -322,7 +316,7 @@ const Home = () => {
               <div className="flex flex-row justify-around">   
               {currentMajor?.requiredCourses.map((course, index) =>  index > 1 && 
               <div key={index} className="flex flex-col ">
-                <div>{course[0]} from this group</div>
+                <div className="">{course[0]} from this group</div>
                 {course.map((cors, idx) => idx > 0 && (
                   
                   <div key={idx} className={`p-2  ${currentUser?.courses.some(corps => corps[2].courseString === cors) ? "text-green-600" : "text-red-500"}`}>{cors}</div>
@@ -334,7 +328,7 @@ const Home = () => {
             </div>
             }
           </div>
-
+          {isAuthenticated && 
           <div>
             <div className="pt-5 text-center font-semibold text-xl" >
               SAS CORE Requirements
@@ -348,27 +342,13 @@ const Home = () => {
               {cores.map((track, index) =>  track.map((coreCode, idx) => idx>0 &&
               <div key={idx} className={currentUser?.courses.some(course => course[2]?.coreCodes.some(code => code === coreCode)) ? "text-green-600" : "text-red-600"}>{coreCode}</div>)
               )}
-
-
-              {/* {cores.map((track, index) =>  
-              
-              <div key={index} className="flex flex-col ">
-
-                <div>{track[0]} from this group</div>
-
-                {track.map((requirement, idx) => idx > 0 && (
-                  currentUser?.courses?.map((cors, id) => id && (
-                  <div key={idx} className="p-2">{requirement} </div>
-                ))))}
-              </div>
-              )} */}
               </div>
             </div>
           </div>
-                
+          }  
           </div>
           
-          <div className="w-1/4 h-screen min-h-screen bg-gray-200 p-5">
+          <div className="w-1/4 min-h-full bg-gray-300 border-x-8 border-gray-300">
             <div className="flex flex-col min-w-full justify-center"> 
               <div className="px-2 pt-2 font-bold text-xl flex flex-row justify-center">Search for Course</div>
               <div className="font-semibold text-md flex flex-row justify-center">Drag Classes into Schedule</div>
@@ -377,10 +357,13 @@ const Home = () => {
                 <input className="ml-2" type="checkbox" id="scales" name="code" onChange={handleBoxChange}/></div>
                 <input className="p-1 m-1 border " type="text" placeholder="Search here" onChange={handleChange} value={searchInput} />
               </div>
-              <div className="italic flex flex-row justify-center">Showing first 20 results</div>
-            
-            <DroppableList onDropCourse={onRemoveCourse}/>
+              <div className="italic flex flex-row justify-center">Showing 20 results</div>
+            <div className="justify-center">
+              <DroppableList onDropCourse={onRemoveCourse}/>
+              <div className="flex flex-row justify-center gap-4">{count >1 && <HiArrowLeft className="h-12 w-12 hover:scale-110 hover:text-gray-700" onClick={leftHandleClick}/>}<HiArrowRight className="h-12 w-12 hover:scale-110 hover:text-gray-700" onClick={rightHandleClick}/></div>
+              <div className="text-sm text-center">Page {count} of {Math.ceil(filteredCourses.length/20)} </div>
             </div>
+          </div>
           </div>
         </div>
       </div>
