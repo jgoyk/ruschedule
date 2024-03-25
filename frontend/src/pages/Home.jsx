@@ -116,10 +116,11 @@ const Home = () => {
     }));
   
     return (
-      <div ref={drag} className="flex flex-row w-full justify-around"style={{ opacity: isDragging ? 0.5 : 1 }}>
-        <div className="text-center">{course.title}</div>
-        <div className="text-center">{course.courseString}</div>
-      </div>
+      <tr ref={drag} className=""style={{ opacity: isDragging ? 0.5 : 1 }}>
+        <td className="text-center">{course.title}</td>
+        <td className="text-center">{course.courseString}</td>
+        <td className="text-center">{course.coreCodes?.toString()}</td>
+      </tr>
     );
   };
 
@@ -211,10 +212,24 @@ const Home = () => {
     return (
       <div className="min-h-full h-full" ref={drop} style={{ opacity: isOver ? 0.5 : 1 }}>
         <div key={searchInput} className="min-h-full min-h-full w-full justify-center bg-gray-200 rounded-lg p-2">
-          
-          {filteredCourses?.filter((course, idx) => (idx < 20*count) && (idx > 20*(count-1))).map((course, index) => (
-            <DraggableCourseItem key={index} course={course} index={index} />
-          ))}
+          <table>
+        
+            <colgroup>
+              <col className="w-1/3" />
+              <col className="w-1/3" />
+              <col className="w-1/3" />
+            </colgroup>
+            <tbody>
+              <tr className="text-center">
+                <th className="">Title</th>
+                <th className="">Code</th>
+                <th className="">Core Codes</th>
+              </tr>
+              {filteredCourses?.filter((course, idx) => (idx < 20*count) && (idx > 20*(count-1))).map((course, index) => (
+                <DraggableCourseItem key={index} course={course} index={index} />
+              ))}
+            </tbody>
+          </table>
         </div>
       </div>
     );
@@ -228,6 +243,7 @@ const Home = () => {
                  ['1', 'NS'],
                  ['2', 'AHo', 'AHp', 'AHq', 'AHr'],
                  ['3', 'WC', 'WCr', 'WCd'],
+                 ['2', 'HST', 'SCL'],
                  ['2', 'QQ', 'QR']];
 
 
@@ -308,7 +324,7 @@ const Home = () => {
               Required Tracks
             </div>
             <div className="text-center">
-              <div className="flex flex-row justify-around">
+              <div className="grid grid-cols-7">
 
               {cores.map((track, index) =>  track.map((coreCode, idx) => idx>0 &&
               <div key={idx} className={currentUser?.courses.some(course => course[2]?.coreCodes.some(code => code === coreCode)) ? "text-green-600" : "text-red-600"}>{coreCode}</div>)
@@ -330,6 +346,7 @@ const Home = () => {
               </div>
               <div className="italic flex flex-row justify-center select-none">Showing 20 results</div>
             <div className="justify-center">
+              
               <DroppableList onDropCourse={onRemoveCourse}/>
               <div className="flex flex-row justify-center gap-4">{count >1 && <HiArrowLeft className="h-12 w-12 hover:scale-110 hover:text-gray-700" onClick={leftHandleClick}/>}<HiArrowRight className="h-12 w-12 hover:scale-110 hover:text-gray-700" onClick={rightHandleClick}/></div>
               <div className="text-sm text-center select-none">Page {count} of {Math.ceil(filteredCourses.length/20)} </div>
