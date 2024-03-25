@@ -240,7 +240,7 @@ const Profile = () => {
   return (
     <Layout>
       <div className="min-h-full min-w-full bg-gray-200">
-        {!user && <div>Please log in or sign up to see your schedule</div>}
+        {!user && <div className="text-center p-2 text-xl font-semibold">Please log in or sign up to see your schedule</div>}
         {open && user &&
         <div className="bg-black opacity-1/2">
           <div className="fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-gray-800 p-3 rounded-lg">
