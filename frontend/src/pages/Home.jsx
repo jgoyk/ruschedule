@@ -246,8 +246,6 @@ const Home = () => {
                  ['2', 'HST', 'SCL'],
                  ['2', 'QQ', 'QR']];
 
-
-
   return (
     <DndProvider backend={HTML5Backend}>
       <Layout>
@@ -326,8 +324,11 @@ const Home = () => {
             <div className="text-center">
               <div className="grid grid-cols-7">
 
-              {cores.map((track, index) =>  track.map((coreCode, idx) => idx>0 &&
-              <div key={idx} className={currentUser?.courses.some(course => course[2]?.coreCodes.some(code => code === coreCode)) ? "text-green-600" : "text-red-600"}>{coreCode}</div>)
+              {cores.map((track, index) =>  track.map((coreCode, idx) => idx>0 && (
+              <div key={idx} className={currentUser?.courses.some(course => course[2]?.coreCodes.some(code => code === coreCode)) ? "text-green-600" : "text-red-600"}>
+                <div>{coreCode}</div> 
+                <div className="">{currentUser?.courses.filter(course => course[2]?.coreCodes.some(code => code === coreCode)).map(course => {return course[2].courseString + ", "}) }</div>
+              </div>))
               )}
               </div>
             </div>
