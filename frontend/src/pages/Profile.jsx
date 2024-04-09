@@ -27,13 +27,6 @@ const Profile = () => {
   const { user } = useUser();
   const clerk = useClerk();
 
-
-  // useEffect(() => {
-  //   if (!user) {
-  //     openSignIn();
-  //   }
-  // }, [user]);
-
   
   const validateData = () => {
     let errors = {};
@@ -171,7 +164,7 @@ const Profile = () => {
   }, [])
 
   useEffect(() => {
-    if (user && !hasPosted && !loading) {
+    if (user && !hasPosted && !loading && users) {
       const useremail = user.primaryEmailAddress.emailAddress;
       const emailExists = users.some(user => user.username === useremail);
       
