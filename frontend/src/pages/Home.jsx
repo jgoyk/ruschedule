@@ -30,16 +30,15 @@ const Home = () => {
     setCount(currentCount => currentCount - 1); 
   };
 
-  const onDropCourse = (courseId, year, term) => {
-    
-    console.log(`Dropped course ${courseId} into ${year} year and ${term}`);
-    const courseInList = currentUser.courses.some(course => course[2] === courseId);
+  const onDropCourse = (course, year, term) => {
+    console.log(`Dropped course ${course?.courseString} into ${year} year and term ${term}`);
+    const courseInList = currentUser?.courses.some(cors => cors[2].courseString === course.courseString);
     if(!courseInList){ 
       const updatedUser = {
         username: currentUser.username,
         major: currentUser.major,
         minor: currentUser.minor,
-        courses: [...currentUser.courses,[term, year, courseId]]
+        courses: [...currentUser.courses,[term, year, course]]
       }
       setCurrentUser(updatedUser)
       axios.put(`${import.meta.env.VITE_LINK}/users/${currentUser.username}`, updatedUser)
@@ -52,8 +51,29 @@ const Home = () => {
           setLoading(false)
         });
     } else{
-        alert("Course already in schedule")
+        const filteredCourses = currentUser.courses.filter(
+          cor => cor[2].courseString !== course.courseString
+        );
+        console.log([...filteredCourses, [term, year, course]])
+        const updatedUser = {
+          username: currentUser.username,
+          major: currentUser.major,
+          minor: currentUser.minor,
+          courses: [...filteredCourses, [term, year, course]]
+        }
+        setCurrentUser(updatedUser)
+        axios.put(`${import.meta.env.VITE_LINK}/users/${currentUser.username}`, updatedUser)
+        .then((res) => {
+          setLoading(false)
+          console.log("updated")
+        })
+        .catch((error) => {
+          console.log(error);
+          setLoading(false)
+        });
       }
+      
+      
   };
   const onRemoveCourse = (course) => {
     console.log(course)
@@ -127,7 +147,7 @@ const Home = () => {
   const DraggableCourseInYear = ({ course, index }) => {
     const [{ isDragging }, drag] = useDrag(() => ({
       type: 'course',
-      item: { id: course, index },
+      item: { id: course[2], index },
       collect: (monitor) => ({
         isDragging: !!monitor.isDragging(),
       }),
@@ -143,7 +163,10 @@ const Home = () => {
     if (searchInput.length > 0) {
       setCount(1)
       return box
-        ? courseList.filter(course => course.courseString.includes(searchInput))
+        ? courseList.filter(course => {
+          const matches = course.courseString.includes(searchInput);
+          return matches;
+        })
         : courseList.filter(course => course.title.toLowerCase().includes(searchInput.toLowerCase()));
     }
     return courseList;
@@ -325,9 +348,9 @@ const Home = () => {
               <div className="grid grid-cols-7">
 
               {cores.map((track, index) =>  track.map((coreCode, idx) => idx>0 && (
-              <div key={idx} className={currentUser?.courses.some(course => course[2]?.coreCodes.some(code => code === coreCode)) ? "text-green-600" : "text-red-600"}>
+              <div key={idx} className={currentUser?.courses.some(course => course[2]?.coreCodes?.some(code => code === coreCode)) ? "text-green-600" : "text-red-600"}>
                 <div>{coreCode}</div> 
-                <div className="">{currentUser?.courses.filter(course => course[2]?.coreCodes.some(code => code === coreCode)).map(course => {return course[2].courseString + ", "}) }</div>
+                <div className="">{currentUser?.courses.filter(course => course[2]?.coreCodes?.some(code => code === coreCode)).map(course => {return course[2].courseString + ", "}) }</div>
               </div>))
               )}
               </div>
