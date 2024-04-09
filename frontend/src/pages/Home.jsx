@@ -76,13 +76,11 @@ const Home = () => {
       
   };
   const onRemoveCourse = (course) => {
-    console.log(course)
-    console.log(currentUser.courses)
     const updatedUser = {
       username: currentUser.username,
       major: currentUser.major,
       minor: currentUser.minor,
-      courses: currentUser.courses.filter(cor => (cor[2].courseString !== course.id[2].courseString))
+      courses: currentUser.courses.filter(cor => (cor[2].courseString !== course.id.courseString))
     }
     setCurrentUser(updatedUser)
       axios.put(`${import.meta.env.VITE_LINK}/users/${currentUser.username}`, updatedUser)
@@ -163,10 +161,9 @@ const Home = () => {
     if (searchInput.length > 0) {
       setCount(1)
       return box
-        ? courseList.filter(course => {
-          const matches = course.courseString.includes(searchInput);
-          return matches;
-        })
+        ? courseList.filter(course => 
+          course.courseString.includes(searchInput)
+        )
         : courseList.filter(course => course.title.toLowerCase().includes(searchInput.toLowerCase()));
     }
     return courseList;
@@ -248,7 +245,7 @@ const Home = () => {
                 <th className="">Code</th>
                 <th className="">Core Codes</th>
               </tr>
-              {filteredCourses?.filter((course, idx) => (idx < 20*count) && (idx > 20*(count-1))).map((course, index) => (
+              {filteredCourses?.filter((course, idx) => (idx < 20*count) && (idx >= 20*(count-1))).map((course, index) => (
                 <DraggableCourseItem key={index} course={course} index={index} />
               ))}
             </tbody>
